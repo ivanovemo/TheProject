@@ -37,7 +37,7 @@
         public static class ReviewConstants
         {
             public const int MinRating = 1;
-            public const int MaxRating = 1;
+            public const int MaxRating = 10;
 
             public const int DescriptionMaxLength = 10000;
             public const int DescriptionMinLength = 10;

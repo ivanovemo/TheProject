@@ -11,7 +11,7 @@ namespace TheProject.Infrastructure.Data.Models
 
         [Required]
         [Range(ReviewConstants.MinRating, ReviewConstants.MaxRating)]
-        public double Rating { get; set; }
+        public int Rating { get; set; }
 
         [Required]
         [MaxLength(ReviewConstants.DescriptionMaxLength)]
