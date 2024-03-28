@@ -21,8 +21,6 @@ namespace TheProject.Infrastructure.Data.Models
         public string ImageUrl { get; set; } = string.Empty;
 
         [Required]
-        public Guid InstructorId { get; set; }
-        [ForeignKey(nameof(InstructorId))]
         public Instructor Instructor { get; set; } = null!;
 
         [Required]

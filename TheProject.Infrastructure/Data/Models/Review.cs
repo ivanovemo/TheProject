@@ -23,7 +23,7 @@ namespace TheProject.Infrastructure.Data.Models
         public User User { get; set; } = null!;
 
         [Required]
-        public int CourseId { get; set; }
+        public Guid CourseId { get; set; }
         [ForeignKey(nameof(CourseId))]
         public Course Course { get; set; } = null!;
     }
