@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TheProject.Infrastructure.Data.Configuration;
 using TheProject.Infrastructure.Data.Models;
 
 namespace TheProject.Infrastructure.Data
@@ -20,6 +21,16 @@ namespace TheProject.Infrastructure.Data
                     uc.CourseId
                 });
 
+            builder.Entity<User>()
+                .Property(u => u.UserName)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            builder.Entity<User>()
+                .Property(u => u.Email)
+                .HasMaxLength(50)
+                .IsRequired();
+
             builder.Entity<Course>()
                 .HasMany(c => c.Lectures)
                 .WithOne(l => l.Course)
@@ -31,6 +42,13 @@ namespace TheProject.Infrastructure.Data
                 .WithOne(r => r.Course)
                 .HasForeignKey(r => r.CourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new InstructorConfiguration());
+            builder.ApplyConfiguration(new LecturesConfiguration());
+            builder.ApplyConfiguration(new CourseConfiguration());
+            builder.ApplyConfiguration(new ReviewConfiguration());
 
             base.OnModelCreating(builder);
         }
