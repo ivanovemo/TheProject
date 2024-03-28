@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReviewConstants = TheProject.Infrastructure.Constants.Constants.ReviewConstants;
 
 namespace TheProject.Infrastructure.Data.Models
 {
@@ -9,11 +10,11 @@ namespace TheProject.Infrastructure.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [Range(1, 10)]
+        [Range(ReviewConstants.MinRating, ReviewConstants.MaxRating)]
         public double Rating { get; set; }
 
         [Required]
-        [MaxLength(5000)]
+        [MaxLength(ReviewConstants.DescriptionMaxLength)]
         public string Description { get; set; } = string.Empty;
 
         [Required]

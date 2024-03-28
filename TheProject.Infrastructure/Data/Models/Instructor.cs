@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using InstructorConstants = TheProject.Infrastructure.Constants.Constants.InstructorConstants;
 
 namespace TheProject.Infrastructure.Data.Models
 {
@@ -9,15 +10,15 @@ namespace TheProject.Infrastructure.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(InstructorConstants.FirstNameMaxLength)]
         public string FirstName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(InstructorConstants.LastNameMaxLength)]
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(5000)]
+        [MaxLength(InstructorConstants.BioxMaxLength)]
         public string Bio { get; set; } = string.Empty;
 
         [Required]

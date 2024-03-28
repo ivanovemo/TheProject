@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using LectureConstants = TheProject.Infrastructure.Constants.Constants.LectureConstants;
 
 namespace TheProject.Infrastructure.Data.Models
 {
@@ -9,11 +10,11 @@ namespace TheProject.Infrastructure.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(LectureConstants.TitleMaxLength)]
         public string Title { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(5000)]
+        [StringLength(LectureConstants.DescriptionMaxLength)]
         public string Description { get; set; } = string.Empty;
 
         [Required]

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using CourseConstants = TheProject.Infrastructure.Constants.Constants.CourseConstants;
 
 namespace TheProject.Infrastructure.Data.Models
 {
@@ -9,11 +10,11 @@ namespace TheProject.Infrastructure.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(CourseConstants.TitleMaxLength)]
         public string Title { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(5000)]
+        [StringLength(CourseConstants.DescriptionMaxLength)]
         public string Description { get; set; } = string.Empty;
 
         [Required]
