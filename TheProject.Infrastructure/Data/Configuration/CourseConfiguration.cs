@@ -33,6 +33,7 @@ namespace TheProject.Infrastructure.Data.Configuration
                     Description = "Dive into data science and machine learning with Python, exploring data visualization, machine learning models, and more.",
                     ImageUrl = "https://media.geeksforgeeks.org/wp-content/uploads/20210629202956/DataV.png",
                     StartDate = new DateTime(2024, 2, 15),
+                    EndDate= new DateTime(2024,4,15),
                     CategoryId = 1,
                     Interested = 150
                 },
@@ -54,6 +55,7 @@ namespace TheProject.Infrastructure.Data.Configuration
                     Description = "Explore the fundamentals of graphic design, including layout, composition, typography, and color theory.",
                     ImageUrl = "https://i.ytimg.com/vi/YqQx75OPRa0/maxresdefault.jpg",
                     StartDate = new DateTime(2024, 4, 25),
+                    EndDate= new DateTime(2024,6,1),
                     CategoryId = 3,
                     Interested = 110
                 },
