@@ -26,6 +26,7 @@ namespace TheProject.Infrastructure.Data.Models
         [Required]
         public DateTime StartDate { get; set; }
 
+        [Required]
         public DateTime EndDate { get; set; }
 
         public int Interested { get; set; }
