@@ -42,5 +42,16 @@
             public const int DescriptionMaxLength = 10000;
             public const int DescriptionMinLength = 10;
         }
+
+        public static class Date
+        {
+            public const string Format = "MM/dd/yyyy";
+        }
+
+        public static class ErrorMessages
+        {
+            public const string Required = "The field {0} is required!";
+            public const string Length = "The field {0} must be between {2} and {1} characters long!";
+        }
     }
 }
