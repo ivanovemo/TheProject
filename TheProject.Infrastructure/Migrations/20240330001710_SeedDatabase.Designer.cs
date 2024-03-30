@@ -12,7 +12,7 @@ using TheProject.Infrastructure.Data;
 namespace TheProject.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240328224307_SeedDatabase")]
+    [Migration("20240330001710_SeedDatabase")]
     partial class SeedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -211,7 +211,7 @@ namespace TheProject.Infrastructure.Migrations
                         .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
@@ -252,6 +252,7 @@ namespace TheProject.Infrastructure.Migrations
                             Id = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             CategoryId = 1,
                             Description = "Dive into data science and machine learning with Python, exploring data visualization, machine learning models, and more.",
+                            EndDate = new DateTime(2024, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "https://media.geeksforgeeks.org/wp-content/uploads/20210629202956/DataV.png",
                             Interested = 150,
                             StartDate = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -273,6 +274,7 @@ namespace TheProject.Infrastructure.Migrations
                             Id = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             CategoryId = 3,
                             Description = "Explore the fundamentals of graphic design, including layout, composition, typography, and color theory.",
+                            EndDate = new DateTime(2024, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "https://i.ytimg.com/vi/YqQx75OPRa0/maxresdefault.jpg",
                             Interested = 110,
                             StartDate = new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -329,7 +331,7 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9eda2f0b-b708-4038-8f38-245444f5c9bf"),
+                            Id = new Guid("0b4f1363-8c03-48dc-bd08-fad9d4cc458b"),
                             Bio = "Expert in full stack development with over 10 years of experience.",
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             FirstName = "Angelina",
@@ -338,7 +340,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bd6cf82d-a7b0-4b32-a660-a99f905e6a0a"),
+                            Id = new Guid("b7a54332-4904-4806-8aab-e27c64e59b24"),
                             Bio = "Data scientist specializing in machine learning and data visualization with over 8 years of experience.",
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             FirstName = "Scarlett",
@@ -347,7 +349,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d1ce4566-c33c-4534-977b-e964e6244f4b"),
+                            Id = new Guid("538279e7-f060-422b-96ac-7fffa70832f1"),
                             Bio = "Digital marketing guru with a focus on SEO and social media strategy.",
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
                             FirstName = "Jennifer",
@@ -356,7 +358,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d8736e7c-a217-4aae-92d9-f7c1a1ffdc76"),
+                            Id = new Guid("ff1a42d7-db91-437e-bc0f-5012f9a5d68f"),
                             Bio = "Renowned graphic designer with a passion for typography and brand identity.",
                             CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             FirstName = "Margot",
@@ -365,7 +367,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15eddde4-7a5d-4f6e-97d7-f9378e880da7"),
+                            Id = new Guid("1be5e5fc-b0e4-4858-95df-27a1062ba57f"),
                             Bio = "Project management professional with extensive experience preparing candidates for the PMP® certification.",
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
                             FirstName = "Emma",
@@ -408,7 +410,7 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("33b60157-9b69-4dbd-89aa-8c68f7fe34a7"),
+                            Id = new Guid("d9ef67c8-b780-4837-b54a-70f722a28aec"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             Description = "Understanding the basics of web development with HTML and CSS.",
                             Duration = new TimeSpan(0, 2, 30, 0, 0),
@@ -417,7 +419,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8ebcefae-69f7-46d7-8f88-981e381f5850"),
+                            Id = new Guid("fcf037a7-61a8-4113-b6e7-1d92bad5e3f3"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             Description = "Interactive web pages with JavaScript.",
                             Duration = new TimeSpan(0, 3, 0, 0, 0),
@@ -426,7 +428,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ba0ba8c2-8d6f-4127-a070-9f2baa1327e7"),
+                            Id = new Guid("7466e5fb-055a-4ad5-aa11-ec006c1b460c"),
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             Description = "Introduction to Python and its libraries for data science.",
                             Duration = new TimeSpan(0, 1, 30, 0, 0),
@@ -435,7 +437,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("73472ee4-a2a6-456c-9535-00a3ce027c40"),
+                            Id = new Guid("4d522ed8-8a34-4b60-9428-10d54c8d6a41"),
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             Description = "Analyzing data sets to summarize their main characteristics.",
                             Duration = new TimeSpan(0, 2, 0, 0, 0),
@@ -444,7 +446,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("377bad54-86b4-4cab-9bca-ed5fd94740e7"),
+                            Id = new Guid("3ad40bba-028b-4c83-b7c9-6822bc54964e"),
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
                             Description = "Learn the basics of Search Engine Optimization to increase your website visibility.",
                             Duration = new TimeSpan(0, 1, 15, 0, 0),
@@ -453,7 +455,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ce51626c-b74c-44ef-a73b-8fc494905789"),
+                            Id = new Guid("0b252781-a615-4eaa-bae7-d55c78f627f2"),
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
                             Description = "Effective strategies for engaging with your audience on social media platforms.",
                             Duration = new TimeSpan(0, 1, 0, 0, 0),
@@ -462,7 +464,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1b55d95c-e3fb-42a5-b493-8dc990ae9778"),
+                            Id = new Guid("92a2077b-9b32-494e-9e7d-f7d01dca7d49"),
                             CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             Description = "A deep dive into the core principles of graphic design, focusing on composition and layout.",
                             Duration = new TimeSpan(0, 3, 0, 0, 0),
@@ -471,7 +473,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cb915ba6-4f59-4e01-a4ed-8002d0ca83e6"),
+                            Id = new Guid("0d5de950-f96f-420f-bf37-ea70344170e4"),
                             CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             Description = "Exploring the role of typography in graphic design and how to use it effectively.",
                             Duration = new TimeSpan(0, 5, 0, 0, 0),
@@ -480,7 +482,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2e683944-e760-4a78-8841-35bfe9ea0ba7"),
+                            Id = new Guid("14b4501c-6a83-4336-8f7e-0b546869d2c1"),
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
                             Description = "Covering the fundamental concepts and terminologies of project management.",
                             Duration = new TimeSpan(0, 2, 0, 0, 0),
@@ -489,7 +491,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4da4bff7-6f94-498d-84f2-100fa3c91d36"),
+                            Id = new Guid("56b480ea-be5b-4bdf-b8b6-6c2fa1c3d96b"),
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
                             Description = "Strategies and tips for tackling the PMP certification exam.",
                             Duration = new TimeSpan(0, 2, 0, 0, 0),
@@ -530,7 +532,7 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cb0485b4-1710-42d6-a0f4-980bee02e48b"),
+                            Id = new Guid("529b45df-6480-4740-8781-080e1ab3fe10"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             Description = "A comprehensive course that offers deep insights into full stack development.",
                             Rating = 8,
@@ -538,7 +540,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("482c02ef-7903-4d8e-8779-1abfef65f7b8"),
+                            Id = new Guid("67f65074-22ed-4b14-a668-e8a3d917e892"),
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             Description = "Excellent course on data science. Highly recommend for beginners and intermediates.",
                             Rating = 9,
@@ -546,7 +548,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("141bee25-c82f-4792-9682-f98421473072"),
+                            Id = new Guid("836384e4-368d-4c34-8cec-7cad94caa3ac"),
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
                             Description = "Great insights into digital marketing strategies. Useful for all levels.",
                             Rating = 7,
@@ -554,7 +556,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d6588c27-e694-4061-894d-eb5c96718e8f"),
+                            Id = new Guid("f1f8bfa7-35fd-48a9-bc61-a9f0d9ff9ed5"),
                             CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             Description = "Loved the practical approach to graphic design principles. The examples were very helpful.",
                             Rating = 6,
@@ -562,7 +564,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8a81b013-16b0-4534-9250-4faa26f79d41"),
+                            Id = new Guid("37fcca74-8e2f-40b5-8951-b341f5e1f268"),
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
                             Description = "The PMP prep course was detailed and well-structured. It helped me pass the exam on the first try.",
                             Rating = 8,
@@ -570,7 +572,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("557e40f9-9962-4b60-bb63-28218fe0f22f"),
+                            Id = new Guid("33fd01ad-45d2-4d19-9c93-af5dda76377b"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             Description = "This course exceeded my expectations! The content was clear, and the projects were both challenging and rewarding.",
                             Rating = 10,
@@ -649,15 +651,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "0afe2b81-40c4-4ae7-9ebd-0ccaa1b0b64f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "83052185-75c0-43c7-b9ea-4cc61bed4434",
+                            ConcurrencyStamp = "9f50ea17-1fd9-477d-a90f-39a1e0378e25",
                             Email = "guest1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "GUEST1@GMAIL.COM",
                             NormalizedUserName = "guest1",
-                            PasswordHash = "AQAAAAEAACcQAAAAELgVRHyj1UerriLx7E4l6yJv/ODJ/6ybVaZ71V4N4wSiA19dWNTrCnLiFq7aswGEfw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDXuDuFbY5HRReGHMqpZiBUk/inINj/ssZKMnjZeyaOsAd16ukhjyKUeGT1csN/2pA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "47ff3e18-11a6-4cbf-926f-9a0f987b82e4",
+                            SecurityStamp = "63ac2c0d-1b91-49d8-8a41-d7b101d91040",
                             TwoFactorEnabled = false,
                             UserName = "guest1"
                         },
@@ -665,15 +667,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "6b79f761-5a4e-4457-a53b-cfc7c36ab084",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3ad3fd9b-4c77-4cdc-928a-ae8e9e24fcf8",
+                            ConcurrencyStamp = "35f710df-e7ba-432d-a41e-9b27ccfc0fed",
                             Email = "user1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@GMAIL.COM",
                             NormalizedUserName = "user1",
-                            PasswordHash = "AQAAAAEAACcQAAAAENNVhxWKXB/s2pm5ZmZdqolF5CZyYQSjb8C40Pko6ZV5tqBwN8yuRaQbndLDFDY3aw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOF+gQJbeS2OOieILXAVnJHr1pYmg5WmOq2bDVGmDIivV0640I9KZf1DjQ1vsIdLHA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "264cad39-bb5b-4b6f-afb0-871cdbef9645",
+                            SecurityStamp = "0cbd5057-4e2f-45db-af0a-f5680a073d3b",
                             TwoFactorEnabled = false,
                             UserName = "user1"
                         },
@@ -681,15 +683,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "6c3438cd-8332-4e95-9a5e-adb64ec972d6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6bae1be2-f14f-446a-9c6d-3faea06127fb",
+                            ConcurrencyStamp = "6d11eedd-66e1-46c1-98e1-033e4e7f3ecb",
                             Email = "user2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@GMAIL.COM",
                             NormalizedUserName = "user2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOPjot7rbkQfqSBJtXjpOtEsYLMMRZrBmO418W2Cd9q5HHj6YilwzP4IgVCImi4hFw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECNhJ+tqamY7MgmhFRUZNyH5ij8EpKgZAFvbCOQg9lYo6Ljm1z47Pa0wT8AzfJ+RwA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "77fb9c30-22e8-40dc-8543-a0943e2f6709",
+                            SecurityStamp = "35600e75-4e67-489b-848c-a7b99eceb532",
                             TwoFactorEnabled = false,
                             UserName = "user2"
                         },
@@ -697,15 +699,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "addd0c13-6a3f-4706-afc8-219f5e89badd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9bdd2bc8-58cb-4f8f-964b-d6812baaeaf3",
+                            ConcurrencyStamp = "07131e56-50ad-4395-af2c-b9dc3046114b",
                             Email = "user3@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER3@GMAIL.COM",
                             NormalizedUserName = "user3",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFWWqE+7zBThjwUXHXlMDSCU9adUYgPnzHj5ExSoBkpUi6B63/15nmm2LmlHhS3rVQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJadL++KpBx5OTB2FaujTiYfAs7pD91FxnenK3Q1BQIhQrIiXCpWIAsVuBIPcepeUQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "30421e61-085a-478d-950e-da48b6fbd6f4",
+                            SecurityStamp = "9723c8e0-588b-47d7-b1a3-941e7469efd2",
                             TwoFactorEnabled = false,
                             UserName = "user3"
                         },
@@ -713,15 +715,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "2d64777e-f833-4eca-803b-8eb1b0670a5c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "70e5d5fd-1c13-40ae-abd7-b826f29a03fb",
+                            ConcurrencyStamp = "75b882d4-1035-4a48-b5c1-3682b8084373",
                             Email = "admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN1@GMAIL.COM",
                             NormalizedUserName = "admin1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJnMAihpF6mrBaqd15HGBu62bdHp0niA7x1WpeYJ+nTkZNTaw/VgyR+OBD1PkSk/ug==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJy1vXz39LjdeqsNJUXxgyJeTo0LTbniyGpt402aA84ZTVQ+xPrdMLFD1Vatr8Aeog==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4054a77f-53ec-4829-9b53-69cb38bc72e4",
+                            SecurityStamp = "cbdf89f5-60b4-4e26-a448-d24308c46abc",
                             TwoFactorEnabled = false,
                             UserName = "admin1"
                         });
