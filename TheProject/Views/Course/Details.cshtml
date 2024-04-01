@@ -1,0 +1,47 @@
+﻿@using TheProject.Core.Models.Course
+@model CourseViewModel
+
+@{
+    ViewBag.Title = "Course details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="container" style="display:inline">
+    <div class="row">
+        <div class="col-4">
+            <img class="card-img-top" style="width: 20rem;"
+                 src="@Model.Instructor.Photo" alt="Instructor Image">
+        </div>
+        <div class="card col-8 border-0">
+            <p style="font-size:25px;"><u>@Model.Title</u></p>
+            <p>Course Teacher: <b>@Model.Instructor.FirstName @Model.Instructor.LastName</b></p>
+                Price: Free
+            </p>
+            <p>Description: @Model.Description</p>
+            <p>Category: <b>@Model.Category</b></p>
+            <p>Date: <b>@Model.StartDate</b></p>
+
+            <div class="form-inline">
+                @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated)
+                {
+                    <div class="col-md-1 bg-light text-left">
+                        <a class="input-group-sm" asp-area="admin" asp-route-courseId="@Model.Id" asp-controller="Course" asp-action="Edit">
+                            <input type="submit" value="Edit" class="fs-6 btn btn-warning mb-3 p-2" />
+                        </a>
+                        <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id"
+                              onclick="return confirm('Are you sure you want to delete this?')">
+                                    <button type="submit" class="fs-6 btn btn-danger mb-3 p-2">Delete<i class="fas fa-trash-alt text-white"></i></button>
+                        </form>
+                    </div>
+                }
+            </div>
+            <p></p>
+                <div class="text-left">
+                    <h5 class="card-title">Reach</h5>
+                    <p class="card-text">Interested: @Model.Interested</p>
+                </div>
+        </div>
+    </div>
+</div>

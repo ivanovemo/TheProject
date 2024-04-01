@@ -8,6 +8,11 @@ namespace TheProject.Controllers
     {
         public IActionResult Index()
         {
+            if (User?.Identity?.Name != null && User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("All", "Course");
+            }
+
             return View();
         }
 

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace TheProject.Infrastructure.Data.Migrations
+namespace TheProject.Infrastructure.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
