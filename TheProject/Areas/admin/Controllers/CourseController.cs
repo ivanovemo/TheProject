@@ -65,5 +65,21 @@ namespace TheProject.Areas.admin.Controllers
                 return View(model);
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid courseId)
+        {
+            try
+            {
+                await _courseService.DeleteCourseAsync(courseId);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return RedirectToAction("All", "Course", new { area = "" });
+            }
+
+            return RedirectToAction("All", "Course", new { area = "" });
+        }
     }
 }

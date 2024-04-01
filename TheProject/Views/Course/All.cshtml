@@ -29,7 +29,7 @@
                     <a class="input-group-sm" asp-route-courseId="@course.Id" asp-controller="Course" asp-action="Edit">
                         <input type="submit" value="Edit" class="fs-6 btn btn-warning mb-3 p-2" />
                     </a>
-                    <form asp-controller="Course" asp-action="Delete" asp-route-courseId="@course.Id"
+                    <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@course.Id"
                           onclick="return confirm('Are you sure you want to delete this?')">
                         <button type="submit" class="fs-6 btn btn-danger mb-3 p-2">Delete<i class="fas fa-trash-alt text-white"></i></button>
                     </form>

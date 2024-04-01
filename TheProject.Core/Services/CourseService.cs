@@ -211,5 +211,18 @@ namespace TheProject.Core.Services
             await _context.Courses.AddAsync(course);
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteCourseAsync(Guid courseId)
+        {
+            var course = await _context.Courses.FindAsync(courseId);
+
+            if (course is null)
+            {
+                throw new Exception($"Something went wrong!");
+            }
+
+            _context.Courses.Remove(course);
+            _context.SaveChanges();
+        }
     }
 }

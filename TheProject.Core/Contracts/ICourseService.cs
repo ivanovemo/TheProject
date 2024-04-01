@@ -8,6 +8,7 @@ namespace TheProject.Core.Contracts
     {
         Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync();
         Task AddCourseAsync(CourseViewModel model, DateTime startDate, DateTime endDate);
+        Task DeleteCourseAsync(Guid courseId);
         Task<CourseViewModel> CourseDetailsAsync(Course currentCourse);
         Task<bool> CourseExistsAsync(Guid courseId);
         Task<Course?> GetCourseAsync(Guid courseId);
