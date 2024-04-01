@@ -1,4 +1,5 @@
-﻿using TheProject.Core.Models.Course;
+﻿using TheProject.Core.Models.Category;
+using TheProject.Core.Models.Course;
 using TheProject.Infrastructure.Data.Models;
 
 namespace TheProject.Core.Contracts
@@ -6,6 +7,7 @@ namespace TheProject.Core.Contracts
     public interface ICourseService
     {
         Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync();
+        Task AddCourseAsync(CourseViewModel model, DateTime startDate, DateTime endDate);
         Task<CourseViewModel> CourseDetailsAsync(Course currentCourse);
         Task<bool> CourseExistsAsync(Guid courseId);
         Task<Course?> GetCourseAsync(Guid courseId);

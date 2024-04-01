@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TheProject.Core.Contracts;
+using TheProject.Core.Models.Category;
 using TheProject.Core.Models.Course;
+using TheProject.Core.Models.Instructor;
 using TheProject.Infrastructure.Data;
 using TheProject.Infrastructure.Data.Models;
 using DateFormat = TheProject.Infrastructure.Constants.Constants.Date;
@@ -184,6 +186,30 @@ namespace TheProject.Core.Services
                     Name = c.Name
                 })
                 .ToListAsync();
+        }
+
+        public async Task AddCourseAsync(CourseViewModel model, DateTime startDate, DateTime endDate)
+        {
+            var course = new Course()
+            {
+                Id = Guid.NewGuid(),
+                Title = model.Title,
+                Instructor = new Instructor()
+                {
+                    FirstName = model.Instructor.FirstName,
+                    LastName = model.Instructor.LastName,
+                    Bio = model.Instructor.Bio,
+                    Photo = model.Instructor.Photo
+                },
+                ImageUrl = model.ImageUrl,
+                StartDate = startDate,
+                EndDate = endDate,
+                Description = model.Description,
+                CategoryId = model.CategoryId
+            };
+
+            await _context.Courses.AddAsync(course);
+            await _context.SaveChangesAsync();
         }
     }
 }

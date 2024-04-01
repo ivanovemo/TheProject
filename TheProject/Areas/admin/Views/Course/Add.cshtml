@@ -1,0 +1,85 @@
+﻿@using TheProject.Core.Models.Course
+@model CourseViewModel
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/FinalProject.styles.css" asp-append-version="true" />
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewBag.Title = "Add Course";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="Add" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Title" class="form-label">Title</label>
+                <input asp-for="@Model.Title" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Instructor.FirstName" class="form-label">Instructor FirstName</label>
+                <input asp-for="@Model.Instructor.FirstName" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Instructor.FirstName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Instructor.LastName" class="form-label">Instructor Last name</label>
+                <input asp-for="@Model.Instructor.LastName" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Instructor.LastName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Instructor.Photo" class="form-label">Instructor Portrait URL</label>
+                <input asp-for="@Model.Instructor.Photo" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Instructor.Photo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Instructor.Bio" class="form-label">Instructor Bio</label>
+                <input asp-for="@Model.Instructor.Bio" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Instructor.Bio" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.ImageUrl" class="form-label">Course Image URL</label>
+                <input asp-for="@Model.ImageUrl" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.StartDate" class="form-label">Start Date</label>
+                <input asp-for="@Model.StartDate" class="form-control" value="" placeholder="dd/MM/yyyy" />
+                <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.EndDate" class="form-label">End Date</label>
+                <input asp-for="@Model.EndDate" class="form-control" value="" placeholder="dd/MM/yyyy" />
+                <span asp-validation-for="@Model.EndDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Description" class="form-label">Description</label>
+                <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.CategoryId" class="form-label">Category</label>
+                <select asp-for="@Model.CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Add" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
