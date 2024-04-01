@@ -33,6 +33,9 @@
 
             public const int DescriptionMaxLength = 10000;
             public const int DescriptionMinLength = 10;
+
+            public const int MaxDurationValue = 300;
+            public const int MinDurationValue = 15;
         }
         public static class ReviewConstants
         {

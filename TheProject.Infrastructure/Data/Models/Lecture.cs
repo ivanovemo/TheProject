@@ -21,7 +21,8 @@ namespace TheProject.Infrastructure.Data.Models
         public DateTime StartDate { get; set; }
 
         [Required]
-        public TimeSpan Duration { get; set; }  
+        [Range(LectureConstants.MinDurationValue, LectureConstants.MaxDurationValue)]
+        public int Duration { get; set; }  
 
         [Required]
         public Guid CourseId { get; set; }
