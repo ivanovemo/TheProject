@@ -173,5 +173,17 @@ namespace TheProject.Core.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync()
+        {
+            return await _context.Categories
+                .AsNoTracking()
+                .Select(c => new CategoryViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                })
+                .ToListAsync();
+        }
     }
 }

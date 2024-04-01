@@ -9,7 +9,9 @@ namespace TheProject.Core.Contracts
         Task<CourseViewModel> CourseDetailsAsync(Course currentCourse);
         Task<bool> CourseExistsAsync(Guid courseId);
         Task<Course?> GetCourseAsync(Guid courseId);
+        Task<IEnumerable<CourseViewModel>> GetUserCoursesAsync(string userId);
         Task AddCourseToCollectionAsync(Guid courseId, string userId);
         Task RemoveCourseFromCollectionAsync(Guid courseId, string userId);
+        Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync();
     }
 }
