@@ -12,11 +12,11 @@
     <div class="row">
         <div class="col-4">
             <img class="card-img-top" style="width: 20rem;"
-                 src="@Model.InstructorPhoto" alt="Instructor Image">
+                 src="@Model.Instructor.Photo" alt="Instructor Image">
         </div>
         <div class="card col-8 border-0">
             <p style="font-size:25px;"><u>@Model.Title</u></p>
-            <p>Course Teacher: <b>@Model.Instructor</b></p>
+            <p>Course Teacher: <b>@Model.Instructor.FirstName @Model.Instructor.LastName</b></p>
                 Price: Free
             </p>
             <p>Description: @Model.Description</p>

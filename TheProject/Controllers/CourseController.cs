@@ -23,6 +23,7 @@ namespace TheProject.Controllers
             return View(model);
         }
 
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Details(Guid courseId)
         {
@@ -43,7 +44,7 @@ namespace TheProject.Controllers
             return View(model);
         }
 
-        //[Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [HttpGet]
         public async Task<IActionResult> MyCourses()
         {
@@ -53,13 +54,19 @@ namespace TheProject.Controllers
             return View(nameof(MyCourses), models);
         }
 
-        //[Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         public async Task<IActionResult> Join(Guid courseId)
         {
+            var userId = GetUserId();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             try
             {
-                var userId = GetUserId();
                 await _courseService.AddCourseToCollectionAsync(courseId, userId);
             }
             catch (Exception)
@@ -70,7 +77,7 @@ namespace TheProject.Controllers
             return RedirectToAction(nameof(All));
         }
 
-        //[Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         public async Task<IActionResult> Leave(Guid courseId)
         {
@@ -82,7 +89,7 @@ namespace TheProject.Controllers
 
         private string GetUserId()
         {
-            return User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)!.Value;
+            return User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
         }
     }
 }
