@@ -27,9 +27,11 @@ namespace TheProject.Core.Models.Course
         public string ImageUrl { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = "The date must be in the format dd/MM/yyyy.")]
         public string StartDate { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = "The date must be in the format dd/MM/yyyy.")]
         public string EndDate { get; set; } = string.Empty;
 
         public int Interested { get; set; }
