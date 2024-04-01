@@ -13,7 +13,7 @@
             <div class="card-body">
 
                 <h5 class="card-title">@course.Title</h5>
-                <p class="mb-1 text-muted">Instructor: @course.Instructor</p>
+                <p class="mb-1 text-muted">Instructor: @course.Instructor.FirstName @course.Instructor.LastName</p>
                 <p class="mb-1">Interested: @course.Interested</p>
                 <p class="mb-3">Category: @course.Category</p>
             </div>
@@ -21,9 +21,11 @@
             <a class="input-group-sm" asp-route-courseId="@course.Id" asp-controller="Course" asp-action="Details">
                 <input type="submit" value="Details" class="fs-6 btn btn-info mb-3 p-2" />
             </a>
-            @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated)
+            <form class="input-group-sm" asp-controller="Course" asp-action="Join" asp-route-courseId="@course.Id">
+                <input type="submit" value="Join" class="fs-6 btn btn-success mb-3 p-2" />
+            </form>
+            @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated && this.User.IsInRole("admin"))
             {
-                <div class="col-md-12 bg-light text-center">
                     <a class="input-group-sm" asp-route-courseId="@course.Id" asp-controller="Course" asp-action="Edit">
                         <input type="submit" value="Edit" class="fs-6 btn btn-warning mb-3 p-2" />
                     </a>
@@ -31,11 +33,6 @@
                           onclick="return confirm('Are you sure you want to delete this?')">
                         <button type="submit" class="fs-6 btn btn-danger mb-3 p-2">Delete<i class="fas fa-trash-alt text-white"></i></button>
                     </form>
-                    <form class="input-group-sm" asp-controller="Course" asp-action="Join" asp-route-courseId="@course.Id">
-                        <input type="submit" value="Join" class="fs-6 btn btn-success mb-3 p-2" />
-                    </form>
-                </div>
-
             }
         </div>
     }
