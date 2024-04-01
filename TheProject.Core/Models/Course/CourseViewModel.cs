@@ -1,7 +1,7 @@
-﻿using static TheProject.Infrastructure.Constants.Constants;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using TheProject.Infrastructure.Data.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using TheProject.Core.Models.Category;
+using TheProject.Core.Models.Instructor;
+using static TheProject.Infrastructure.Constants.Constants;
 using ErrorMessages = TheProject.Infrastructure.Constants.Constants.ErrorMessages;
 
 namespace TheProject.Core.Models.Course

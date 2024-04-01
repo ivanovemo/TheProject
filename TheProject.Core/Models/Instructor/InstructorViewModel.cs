@@ -1,7 +1,7 @@
 ﻿using static TheProject.Infrastructure.Constants.Constants;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheProject.Core.Models.Course
+namespace TheProject.Core.Models.Instructor
 {
     public class InstructorViewModel
     {
