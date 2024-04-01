@@ -27,12 +27,6 @@ namespace TheProject.Core.Models.Course
         public string ImageUrl { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
-        public string Instructor { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = ErrorMessages.Required)]
-        public string InstructorPhoto { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = ErrorMessages.Required)]
         public string StartDate { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
@@ -40,7 +34,10 @@ namespace TheProject.Core.Models.Course
 
         public int Interested { get; set; }
 
+        public int CategoryId { get; set; }
         public string? Category { get; set; }
+        public InstructorViewModel Instructor { get; set; } = new InstructorViewModel();
+        public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
 
         //public IList<Lecture> Lectures { get; set; } = new List<Lecture>();
         //public IList<Review> Reviews { get; set; } = new List<Review>();

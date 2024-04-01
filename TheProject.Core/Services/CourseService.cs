@@ -31,7 +31,11 @@ namespace TheProject.Core.Services
                     Description = c.Description,
                     Interested = c.Interested,
                     EndDate = c.EndDate.ToString(DateFormat.Format),
-                    Instructor = c.Instructor.FirstName + " " + c.Instructor.LastName,
+                    Instructor = new InstructorViewModel()
+                    {
+                        FirstName = c.Instructor.FirstName,
+                        LastName = c.Instructor.LastName,
+                    }
                 })
                 .ToListAsync();
 
@@ -48,12 +52,16 @@ namespace TheProject.Core.Services
                 Id = currentCourse.Id,
                 Title = currentCourse.Title,
                 ImageUrl = currentCourse.ImageUrl,
-                InstructorPhoto = currentCourse.Instructor.Photo,
                 Description = currentCourse.Description,
                 Category = courseCategory!.Name,
                 StartDate = currentCourse.StartDate.ToString(DateFormat.Format),
                 EndDate = currentCourse.EndDate.ToString(DateFormat.Format),
-                Instructor = $"{currentCourse.Instructor.FirstName} {currentCourse.Instructor.LastName}",
+                Instructor = new InstructorViewModel()
+                {
+                    FirstName = currentCourse.Instructor.FirstName,
+                    LastName = currentCourse.Instructor.LastName,
+                    Photo = currentCourse.Instructor.Photo
+                },
                 Interested = currentCourse.Interested
             };
 
@@ -95,7 +103,11 @@ namespace TheProject.Core.Services
                 {
                     Id = e.Course.Id,
                     Title = e.Course.Title,
-                    Instructor = $"{e.Course.Instructor.FirstName} {e.Course.Instructor.LastName}",
+                    Instructor = new InstructorViewModel()
+                    {
+                        FirstName = e.Course.Instructor.FirstName,
+                        LastName = e.Course.Instructor.LastName,
+                    },
                     ImageUrl = e.Course.ImageUrl,
                     Interested = e.Course.Interested,
                     Category = e?.Course.Category?.Name
