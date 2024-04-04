@@ -48,7 +48,7 @@
 
         public static class Date
         {
-            public const string Format = "MM/dd/yyyy";
+            public const string Format = "dd/MM/yyyy";
         }
 
         public static class ErrorMessages
