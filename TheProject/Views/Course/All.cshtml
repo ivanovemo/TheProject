@@ -25,7 +25,7 @@
             </form>
             @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated && this.User.IsInRole("admin"))
             {
-                    <a class="input-group-sm" asp-route-courseId="@course.Id" asp-controller="Course" asp-action="Edit">
+                    <a asp-area="admin" class="input-group-sm" asp-route-courseId="@course.Id" asp-controller="Course" asp-action="Edit">
                         <input type="submit" value="Edit" class="fs-6 btn btn-warning mb-3 p-2" />
                     </a>
                     <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@course.Id"

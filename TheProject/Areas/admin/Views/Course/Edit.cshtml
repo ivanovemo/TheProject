@@ -1,0 +1,87 @@
+﻿@model CourseViewModel
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/FinalProject.styles.css" asp-append-version="true" />
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewBag.Title = "Edit course";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <input type="hidden" asp-for="@Model.Id" />
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructor.FirstName">Instructor First Name</label>
+                <input asp-for="Instructor.FirstName" class="form-control">
+                <span asp-validation-for="Instructor.FirstName" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructor.LastName">Instructor Last Name</label>
+                <input asp-for="Instructor.LastName" class="form-control">
+                <span asp-validation-for="Instructor.LastName" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructor.Photo">Instructor Photo</label>
+                <input asp-for="Instructor.Photo" class="form-control">
+                <span asp-validation-for="Instructor.Photo" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructor.Bio">Instructor Bio</label>
+                <input asp-for="Instructor.Bio" class="form-control">
+                <span asp-validation-for="Instructor.Bio" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl">Course Image</label>
+                <input asp-for="ImageUrl" class="form-control">
+                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="form-label">Start date</label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="form-label">End date</label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId">Categories</label>
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                                <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="small text-danger"></span>
+            </div>
+            <div class="text-center">
+                <input class="btn btn-primary mt-3" type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+}

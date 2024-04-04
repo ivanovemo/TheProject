@@ -37,7 +37,7 @@ namespace TheProject.Core.Models.Course
         public int Interested { get; set; }
 
         public int CategoryId { get; set; }
-        public string? Category { get; set; }
+        public string Category { get; set; } = string.Empty;
         public InstructorViewModel Instructor { get; set; } = new InstructorViewModel();
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
 

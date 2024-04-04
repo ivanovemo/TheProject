@@ -66,6 +66,56 @@ namespace TheProject.Areas.admin.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid courseId)
+        {
+            if (await _courseService.CourseExistsAsync(courseId) == false)
+            {
+                return BadRequest();
+            }
+
+            var model = await _courseService.GetCourseViewModelByIdAsync(courseId);
+            model.Categories = await _courseService.GetCategoriesAsync();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Guid courseId, CourseViewModel model)
+        {
+            if (await _courseService.CourseExistsAsync(courseId) == false)
+            {
+                return BadRequest();
+            }
+
+
+            if (ModelState.IsValid == false)
+            {
+                model.Categories = await _courseService.GetCategoriesAsync();
+
+                return View(model);
+            }
+
+
+            DateTime startDate;
+            DateTime endDate;
+
+            if (!DateTime.TryParseExact(model.StartDate, DateFormat.Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
+            {
+                ModelState.AddModelError(nameof(model.StartDate), $"Invalid format! The date should be in '{DateFormat.Format}' format!");
+            }
+
+            if (!DateTime.TryParseExact(model.EndDate, DateFormat.Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate))
+            {
+                ModelState.AddModelError(nameof(model.EndDate), $"Invalid format! The date should be in '{DateFormat.Format}' format!");
+            }
+
+            await _courseService.EditCourseAsync(courseId, model, startDate, endDate);
+
+            return RedirectToAction("Details", "Course", new { area = "", courseId });
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Delete(Guid courseId)
         {
