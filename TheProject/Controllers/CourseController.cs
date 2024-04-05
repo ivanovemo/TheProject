@@ -9,9 +9,11 @@ namespace TheProject.Controllers
     public class CourseController : Controller
     {
         private readonly ICourseService _courseService;
-        public CourseController(ICourseService courseService)
+        private readonly IReviewService _reviewService;
+        public CourseController(ICourseService courseService, IReviewService reviewService)
         {
             _courseService = courseService;
+            _reviewService = reviewService;
         }
 
         [HttpGet]
@@ -40,6 +42,7 @@ namespace TheProject.Controllers
             }
 
             var model = await _courseService.CourseDetailsAsync(course);
+            model.Reviews = await _reviewService.GetReviewsByCourseIdAsync(courseId);
 
             return View(model);
         }

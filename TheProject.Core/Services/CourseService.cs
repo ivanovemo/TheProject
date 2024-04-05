@@ -67,12 +67,6 @@ namespace TheProject.Core.Services
                     LastName = currentCourse.Instructor.LastName,
                     Photo = currentCourse.Instructor.Photo
                 },
-                Reviews = currentCourse.Reviews.Select(r => new ReviewViewModel()
-                {
-                    Id = r.Id,
-                    Description = r.Description,
-                    Rating = r.Rating,
-                }).ToList(),
                 Interested = currentCourse.Interested
             };
 
