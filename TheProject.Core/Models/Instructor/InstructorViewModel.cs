@@ -5,6 +5,8 @@ namespace TheProject.Core.Models.Instructor
 {
     public class InstructorViewModel
     {
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = ErrorMessages.Required)]
         [StringLength(InstructorConstants.FirstNameMaxLength,
             MinimumLength = InstructorConstants.FirstNameMinLength,

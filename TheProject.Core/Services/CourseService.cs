@@ -35,6 +35,7 @@ namespace TheProject.Core.Services
                     EndDate = c.EndDate.ToString(DateFormat.Format),
                     Instructor = new InstructorViewModel()
                     {
+                        Id = c.Instructor.Id,
                         FirstName = c.Instructor.FirstName,
                         LastName = c.Instructor.LastName,
                     }
@@ -60,6 +61,7 @@ namespace TheProject.Core.Services
                 EndDate = currentCourse.EndDate.ToString(DateFormat.Format),
                 Instructor = new InstructorViewModel()
                 {
+                    Id = currentCourse.Instructor.Id,
                     FirstName = currentCourse.Instructor.FirstName,
                     LastName = currentCourse.Instructor.LastName,
                     Photo = currentCourse.Instructor.Photo
@@ -102,18 +104,19 @@ namespace TheProject.Core.Services
             }
 
             return user.UsersCourses
-                .Select(e => new CourseViewModel()
+                .Select(uc => new CourseViewModel()
                 {
-                    Id = e.Course.Id,
-                    Title = e.Course.Title,
+                    Id = uc.Course.Id,
+                    Title = uc.Course.Title,
                     Instructor = new InstructorViewModel()
                     {
-                        FirstName = e.Course.Instructor.FirstName,
-                        LastName = e.Course.Instructor.LastName,
+                        Id = uc.Course.Instructor.Id,
+                        FirstName = uc.Course.Instructor.FirstName,
+                        LastName = uc.Course.Instructor.LastName,
                     },
-                    ImageUrl = e.Course.ImageUrl,
-                    Interested = e.Course.Interested,
-                    Category = e?.Course.Category?.Name
+                    ImageUrl = uc.Course.ImageUrl,
+                    Interested = uc.Course.Interested,
+                    Category = uc!.Course.Category.Name
                 });
         }
 
@@ -262,6 +265,7 @@ namespace TheProject.Core.Services
                 Title = course.Title,
                 Instructor = new InstructorViewModel()
                 {
+                    Id = course.Instructor.Id,
                     FirstName = course.Instructor.FirstName,
                     LastName = course.Instructor.LastName,
                     Bio = course.Instructor.Bio,
