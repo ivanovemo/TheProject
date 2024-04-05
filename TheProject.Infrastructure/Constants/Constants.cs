@@ -55,6 +55,7 @@
         {
             public const string Required = "The field {0} is required!";
             public const string Length = "The field {0} must be between {2} and {1} characters long!";
+            public const string DateFormat = "The date must be in the format dd/MM/yyyy.";
         }
     }
 }
