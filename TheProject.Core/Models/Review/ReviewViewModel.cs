@@ -9,13 +9,10 @@ namespace TheProject.Core.Models.Review
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = ErrorMessages.Required)]
-        [Range(ReviewConstants.MinRating, ReviewConstants.MaxRating)]
         public int Rating { get; set; }
 
         [Required(ErrorMessage = ErrorMessages.Required)]
-        [StringLength(ReviewConstants.DescriptionMaxLength,
-            MinimumLength = ReviewConstants.DescriptionMinLength,
-            ErrorMessage = ErrorMessages.Length)]
         public string Description { get; set; } = string.Empty;
+        public Guid CourseId { get; set; }
     }
 }
