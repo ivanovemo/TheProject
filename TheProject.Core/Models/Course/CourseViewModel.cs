@@ -27,11 +27,11 @@ namespace TheProject.Core.Models.Course
         public string ImageUrl { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
-        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = "The date must be in the format dd/MM/yyyy.")]
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = ErrorMessages.DateFormat)]
         public string StartDate { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessages.Required)]
-        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = "The date must be in the format dd/MM/yyyy.")]
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d{2}$", ErrorMessage = ErrorMessages.DateFormat)]
         public string EndDate { get; set; } = string.Empty;
 
         public int Interested { get; set; }
@@ -40,7 +40,7 @@ namespace TheProject.Core.Models.Course
         public string Category { get; set; } = string.Empty;
         public InstructorViewModel Instructor { get; set; } = new InstructorViewModel();
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
-
+        
         //public IList<Lecture> Lectures { get; set; } = new List<Lecture>();
         //public IList<Review> Reviews { get; set; } = new List<Review>();
         //public IList<UserCourse> UserCourses { get; set; } = new List<UserCourse>();
