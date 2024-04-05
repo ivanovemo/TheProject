@@ -33,6 +33,9 @@
 
             public const int DescriptionMaxLength = 10000;
             public const int DescriptionMinLength = 10;
+
+            public const int MaxDurationValue = 300;
+            public const int MinDurationValue = 15;
         }
         public static class ReviewConstants
         {
@@ -45,13 +48,14 @@
 
         public static class Date
         {
-            public const string Format = "MM/dd/yyyy";
+            public const string Format = "dd/MM/yyyy";
         }
 
         public static class ErrorMessages
         {
             public const string Required = "The field {0} is required!";
             public const string Length = "The field {0} must be between {2} and {1} characters long!";
+            public const string DateFormat = "The date must be in the format dd/MM/yyyy.";
         }
     }
 }

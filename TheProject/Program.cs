@@ -34,6 +34,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
 
 var app = builder.Build();
 
@@ -58,7 +59,15 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
-        name: "areas",
+       name: "areas",
+        pattern: "{area:exists}/{controller=Course}/{action=Delete}/{id?}"
+        );
+    endpoints.MapControllerRoute(
+       name: "areas",
+        pattern: "{area:exists}/{controller=Course}/{action=Edit}/{id?}"
+        );
+    endpoints.MapControllerRoute(
+       name: "areas",
         pattern: "{area:exists}/{controller=Course}/{action=Add}/{id?}"
         );
     endpoints.MapControllerRoute(

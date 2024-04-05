@@ -1,0 +1,87 @@
+﻿@model CourseViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Add Course";
+}
+
+<h2 class="text-center my-4">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="card shadow p-4 mb-5 bg-white rounded">
+        <div class="card-body">
+            <form asp-action="Add" method="post">
+                <h4 class="mb-3">Course Details</h4>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.Title" class="form-label">Course Title</label>
+                    <input asp-for="@Model.Title" class="form-control" placeholder="Enter course title">
+                    <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.ImageUrl" class="form-label">Image URL</label>
+                    <input asp-for="@Model.ImageUrl" class="form-control" placeholder="http://example.com/image.jpg">
+                    <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.StartDate" class="form-label">Start Date</label>
+                        <input asp-for="@Model.StartDate" class="form-control" placeholder="DD/MM/YYYY">
+                        <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.EndDate" class="form-label">End Date</label>
+                        <input asp-for="@Model.EndDate" class="form-control" placeholder="DD/MM/YYYY">
+                        <span asp-validation-for="@Model.EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.Description" class="form-label">Description</label>
+                    <textarea asp-for="@Model.Description" class="form-control" rows="5" placeholder="Course description"></textarea>
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.CategoryId" class="form-label">Category</label>
+                    <select asp-for="@Model.CategoryId" class="form-select">
+                        <option value="">Select a category</option>
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+                </div>
+                <h4 class="mb-3">Instructor Details</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Instructor.FirstName" class="form-label">First Name</label>
+                        <input asp-for="@Model.Instructor.FirstName" class="form-control" placeholder="Enter first name">
+                        <span asp-validation-for="@Model.Instructor.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Instructor.LastName" class="form-label">Last Name</label>
+                        <input asp-for="@Model.Instructor.LastName" class="form-control" placeholder="Enter last name">
+                        <span asp-validation-for="@Model.Instructor.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.Instructor.Photo" class="form-label">Photo URL</label>
+                    <input asp-for="@Model.Instructor.Photo" class="form-control" placeholder="http://example.com/photo.jpg">
+                    <span asp-validation-for="@Model.Instructor.Photo" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.Instructor.Bio" class="form-label">Bio</label>
+                    <textarea asp-for="@Model.Instructor.Bio" class="form-control" rows="3" placeholder="Brief bio"></textarea>
+                    <span asp-validation-for="@Model.Instructor.Bio" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Add Course</button>
+                    <a asp-area="" asp-controller="Course" asp-action="All" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

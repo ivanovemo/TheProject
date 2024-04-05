@@ -1,4 +1,4 @@
-﻿namespace TheProject.Core.Models.Course
+﻿namespace TheProject.Core.Models.Category
 {
     public class CategoryViewModel
     {

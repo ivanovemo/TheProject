@@ -1,0 +1,45 @@
+﻿@model CourseViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Confirm Course Deletion";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    Warning: You are about to delete this course
+                </div>
+                <div class="card-body">
+                    <img src="@Model.ImageUrl" alt="Course Image" class="img-fluid rounded mb-3" style="max-height: 200px;">
+                    <h5 class="card-title">@Model.Title</h5>
+                    <p class="card-text">
+                        <strong>Instructor:</strong>
+                        <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="text-decoration-none instructor-link" title="Click to view more about @Model.Instructor.FirstName @Model.Instructor.LastName">
+                            @Model.Instructor.FirstName @Model.Instructor.LastName
+                        </a>
+                    </p>                    <p class="card-text"><strong>Start Date:</strong> @Model.StartDate</p>
+                    <p class="card-text"><strong>End Date:</strong> @Model.EndDate</p>
+                    <p class="card-text"><strong>Description:</strong> @Model.Description</p>
+                    <p class="card-text"><strong>Category:</strong> @Model.Category</p>
+                </div>
+                <div class="card-footer">
+                    <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    </form>
+                    <a asp-area="" asp-action="All" asp-controller="Course" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

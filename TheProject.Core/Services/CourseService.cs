@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TheProject.Core.Contracts;
+using TheProject.Core.Models.Category;
 using TheProject.Core.Models.Course;
+using TheProject.Core.Models.Instructor;
 using TheProject.Infrastructure.Data;
 using TheProject.Infrastructure.Data.Models;
 using DateFormat = TheProject.Infrastructure.Constants.Constants.Date;
@@ -33,6 +35,7 @@ namespace TheProject.Core.Services
                     EndDate = c.EndDate.ToString(DateFormat.Format),
                     Instructor = new InstructorViewModel()
                     {
+                        Id = c.Instructor.Id,
                         FirstName = c.Instructor.FirstName,
                         LastName = c.Instructor.LastName,
                     }
@@ -46,7 +49,7 @@ namespace TheProject.Core.Services
         {
             var courseCategory = await _context.Categories.FirstOrDefaultAsync(c => c.Id == currentCourse.CategoryId);
             var courseInstructor = await _context.Instructors.FirstOrDefaultAsync(v => v.Id == currentCourse.Instructor.Id);
-            
+
             var model = new CourseViewModel()
             {
                 Id = currentCourse.Id,
@@ -58,6 +61,7 @@ namespace TheProject.Core.Services
                 EndDate = currentCourse.EndDate.ToString(DateFormat.Format),
                 Instructor = new InstructorViewModel()
                 {
+                    Id = currentCourse.Instructor.Id,
                     FirstName = currentCourse.Instructor.FirstName,
                     LastName = currentCourse.Instructor.LastName,
                     Photo = currentCourse.Instructor.Photo
@@ -77,6 +81,7 @@ namespace TheProject.Core.Services
         {
             return await _context.Courses
                             .Include(c => c.Instructor)
+                            .Include(c => c.Category)
                             .FirstOrDefaultAsync(c => c.Id == courseId);
         }
 
@@ -99,18 +104,19 @@ namespace TheProject.Core.Services
             }
 
             return user.UsersCourses
-                .Select(e => new CourseViewModel()
+                .Select(uc => new CourseViewModel()
                 {
-                    Id = e.Course.Id,
-                    Title = e.Course.Title,
+                    Id = uc.Course.Id,
+                    Title = uc.Course.Title,
                     Instructor = new InstructorViewModel()
                     {
-                        FirstName = e.Course.Instructor.FirstName,
-                        LastName = e.Course.Instructor.LastName,
+                        Id = uc.Course.Instructor.Id,
+                        FirstName = uc.Course.Instructor.FirstName,
+                        LastName = uc.Course.Instructor.LastName,
                     },
-                    ImageUrl = e.Course.ImageUrl,
-                    Interested = e.Course.Interested,
-                    Category = e?.Course.Category?.Name
+                    ImageUrl = uc.Course.ImageUrl,
+                    Interested = uc.Course.Interested,
+                    Category = uc!.Course.Category.Name
                 });
         }
 
@@ -184,6 +190,98 @@ namespace TheProject.Core.Services
                     Name = c.Name
                 })
                 .ToListAsync();
+        }
+
+        public async Task AddCourseAsync(CourseViewModel model, DateTime startDate, DateTime endDate)
+        {
+            var course = new Course()
+            {
+                Id = Guid.NewGuid(),
+                Title = model.Title,
+                Instructor = new Instructor()
+                {
+                    FirstName = model.Instructor.FirstName,
+                    LastName = model.Instructor.LastName,
+                    Bio = model.Instructor.Bio,
+                    Photo = model.Instructor.Photo
+                },
+                ImageUrl = model.ImageUrl,
+                StartDate = startDate,
+                EndDate = endDate,
+                Description = model.Description,
+                CategoryId = model.CategoryId
+            };
+
+            await _context.Courses.AddAsync(course);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteCourseAsync(Guid courseId)
+        {
+            var course = await _context.Courses.FindAsync(courseId);
+
+            if (course is null)
+            {
+                throw new Exception($"Something went wrong!");
+            }
+
+            _context.Courses.Remove(course);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task EditCourseAsync(Guid courseId, CourseViewModel model, DateTime startDate, DateTime endDate)
+        {
+            var course = await GetCourseAsync(courseId);
+
+            if (course != null)
+            {
+                course.Title = model.Title;
+                course.Instructor.FirstName = model.Instructor.FirstName;
+                course.Instructor.LastName = model.Instructor.LastName;
+                course.Instructor.Photo = model.Instructor.Photo;
+                course.Instructor.Bio = model.Instructor.Bio;
+                course.ImageUrl = model.ImageUrl;
+                course.StartDate = startDate;
+                course.EndDate = endDate;
+                course.Description = model.Description;
+                course.CategoryId = model.CategoryId;
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<CourseViewModel> GetCourseViewModelByIdAsync(Guid courseId)
+        {
+            var course = await GetCourseAsync(courseId);
+
+            if (course == null)
+            {
+                throw new ArgumentException("Course not found");
+            }
+
+            var model = new CourseViewModel()
+            {
+                Id = course.Id,
+                Title = course.Title,
+                Instructor = new InstructorViewModel()
+                {
+                    Id = course.Instructor.Id,
+                    FirstName = course.Instructor.FirstName,
+                    LastName = course.Instructor.LastName,
+                    Bio = course.Instructor.Bio,
+                    Photo = course.Instructor.Photo
+                },
+                ImageUrl = course.ImageUrl,
+                StartDate = course.StartDate.ToString(DateFormat.Format),
+                EndDate = course.EndDate.ToString(DateFormat.Format),
+                Description = course.Description,
+                Interested = course.Interested,
+                CategoryId = course.CategoryId ?? 1,
+                Category = course.Category.Name,
+                Categories = await GetCategoriesAsync(),
+            };
+
+            return model;
         }
     }
 }

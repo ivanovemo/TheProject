@@ -74,7 +74,7 @@ namespace TheProject.Controllers
                 throw;
             }
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(MyCourses));
         }
 
         [Authorize(Roles = "user, admin")]

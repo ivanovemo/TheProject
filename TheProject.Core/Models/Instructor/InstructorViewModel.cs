@@ -1,10 +1,12 @@
 ﻿using static TheProject.Infrastructure.Constants.Constants;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheProject.Core.Models.Course
+namespace TheProject.Core.Models.Instructor
 {
     public class InstructorViewModel
     {
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = ErrorMessages.Required)]
         [StringLength(InstructorConstants.FirstNameMaxLength,
             MinimumLength = InstructorConstants.FirstNameMinLength,
