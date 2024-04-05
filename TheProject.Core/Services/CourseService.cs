@@ -3,6 +3,7 @@ using TheProject.Core.Contracts;
 using TheProject.Core.Models.Category;
 using TheProject.Core.Models.Course;
 using TheProject.Core.Models.Instructor;
+using TheProject.Core.Models.Review;
 using TheProject.Infrastructure.Data;
 using TheProject.Infrastructure.Data.Models;
 using DateFormat = TheProject.Infrastructure.Constants.Constants.Date;
@@ -66,6 +67,12 @@ namespace TheProject.Core.Services
                     LastName = currentCourse.Instructor.LastName,
                     Photo = currentCourse.Instructor.Photo
                 },
+                Reviews = currentCourse.Reviews.Select(r => new ReviewViewModel()
+                {
+                    Id = r.Id,
+                    Description = r.Description,
+                    Rating = r.Rating,
+                }).ToList(),
                 Interested = currentCourse.Interested
             };
 
@@ -82,6 +89,7 @@ namespace TheProject.Core.Services
             return await _context.Courses
                             .Include(c => c.Instructor)
                             .Include(c => c.Category)
+                            .Include(c => c.Reviews)
                             .FirstOrDefaultAsync(c => c.Id == courseId);
         }
 
