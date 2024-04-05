@@ -1,41 +1,38 @@
-﻿@model CourseViewModel
+﻿@model TheProject.Core.Models.Course.CourseViewModel
 
 @{
-    ViewBag.Title = "Course Details";
+    Layout = "_Layout";
+    ViewData["Title"] = "Course Details";
 }
 
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="@Model.ImageUrl" alt="Instructor Image" class="img-fluid">
-        </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
         <div class="col-md-8">
-            <h3><u>@Model.Title</u></h3>
-            <p><strong>Course Teacher:</strong> @Model.Instructor.FirstName @Model.Instructor.LastName</p>
-            <p><strong>Price:</strong> Free</p>
-            <p><strong>Description:</strong> @Model.Description</p>
-            <p><strong>Category:</strong> @Model.Category</p>
-            <p><strong>Date:</strong> @Model.StartDate to @Model.EndDate</p>
-            <form class="input-group-sm mb-3" asp-controller="Course" asp-action="Join" asp-route-courseId="@Model.Id">
-                <button type="submit" class="btn btn-success">Join</button>
-            </form>
-            <a class="btn btn-dark" asp-controller="Course" asp-action="All">Back to Courses</a>
-            @if (User?.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))
-            {
-                <a asp-area="admin" asp-route-courseId="@Model.Id" asp-controller="Course" asp-action="Edit" class="btn btn-warning">Edit</a>
-                <a asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id" class="btn btn-danger">Delete</a>
-            }
-            <div class="mt-3">
-                <h5>Reach</h5>
-                <p>Interested: @Model.Interested</p>
+            <div class="card">
+                <img src="@Model.ImageUrl" alt="@Model.Title" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title text-center">@Model.Title</h2>
+                    <p class="card-text">
+                        <strong>Instructor:</strong>
+                        <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="text-decoration-none instructor-link" title="Click to view more about @Model.Instructor.FirstName @Model.Instructor.LastName">
+                            @Model.Instructor.FirstName @Model.Instructor.LastName
+                        </a>
+                    </p>
+                    <p class="card-text"><strong>Description:</strong> @Model.Description</p>
+                    <p class="card-text"><strong>Start Date:</strong> @Model.StartDate</p>
+                    <p class="card-text"><strong>End Date:</strong> @Model.EndDate</p>
+                    <p class="card-text"><strong>Category:</strong> @Model.Category</p>
+                    <p class="card-text"><strong>Interested:</strong> @Model.Interested</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<style>
+    .instructor-link:hover, .instructor-link:focus {
+        text-decoration: underline;
+        color: #007bff;
+        cursor: pointer;
+    }
+</style>

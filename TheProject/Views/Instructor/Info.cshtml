@@ -1,0 +1,30 @@
+﻿@model TheProject.Core.Models.Instructor.InstructorViewModel
+
+@{
+    ViewData["Title"] = $"About {Model.FirstName} {Model.LastName}";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow h-100">
+                <img src="@Model.Photo" class="card-img-top" alt="Instructor Photo" style="height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">@Model.FirstName @Model.LastName</h3>
+                    <hr>
+                    <p class="text-muted">@Model.FirstName's expertise ranges across multiple disciplines, making them a key asset to our learning community.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-header">
+                    <h4 class="my-0">Instructor Bio</h4>
+                </div>
+                <div class="card-body">
+                    <p>@Model.Bio</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
