@@ -79,6 +79,7 @@ namespace TheProject.Core.Services
         {
             return await _context.Courses
                             .Include(c => c.Instructor)
+                            .Include(c => c.Category)
                             .FirstOrDefaultAsync(c => c.Id == courseId);
         }
 
@@ -222,7 +223,7 @@ namespace TheProject.Core.Services
             }
 
             _context.Courses.Remove(course);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task EditCourseAsync(Guid courseId, CourseViewModel model, DateTime startDate, DateTime endDate)
@@ -272,6 +273,7 @@ namespace TheProject.Core.Services
                 Description = course.Description,
                 Interested = course.Interested,
                 CategoryId = course.CategoryId ?? 1,
+                Category = course.Category.Name,
                 Categories = await GetCategoriesAsync(),
             };
 
