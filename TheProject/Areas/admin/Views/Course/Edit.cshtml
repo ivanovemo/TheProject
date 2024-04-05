@@ -6,82 +6,83 @@
 
 @{
     Layout = "_Layout";
+    ViewData["Title"] = "Edit Course";
 }
 
-@{
-    ViewBag.Title = "Edit course";
-}
+<h2 class="text-center my-4">@ViewData["Title"]</h2>
 
-
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
-
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form method="post">
-            <input type="hidden" asp-for="@Model.Id" />
-            <div class="form-group">
-                <label asp-for="Title"></label>
-                <input asp-for="Title" class="form-control">
-                <span asp-validation-for="Title" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.FirstName">Instructor First Name</label>
-                <input asp-for="Instructor.FirstName" class="form-control">
-                <span asp-validation-for="Instructor.FirstName" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.LastName">Instructor Last Name</label>
-                <input asp-for="Instructor.LastName" class="form-control">
-                <span asp-validation-for="Instructor.LastName" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.Photo">Instructor Photo</label>
-                <input asp-for="Instructor.Photo" class="form-control">
-                <span asp-validation-for="Instructor.Photo" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.Bio">Instructor Bio</label>
-                <input asp-for="Instructor.Bio" class="form-control">
-                <span asp-validation-for="Instructor.Bio" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl">Course Image</label>
-                <input asp-for="ImageUrl" class="form-control">
-                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="form-label">Start date</label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDate" class="form-label">End date</label>
-                <input asp-for="EndDate" class="form-control" />
-                <span asp-validation-for="EndDate" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <textarea asp-for="Description" rows="4" class="form-control"></textarea>
-                <span asp-validation-for="Description" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId">Categories</label>
-                <select asp-for="CategoryId" class="form-control">
-                    @foreach (var category in Model.Categories)
-                    {
-                                <option value="@category.Id">@category.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="CategoryId" class="small text-danger"></span>
-            </div>
-            <div class="text-center">
-                <input class="btn btn-primary mt-3" type="submit" value="Save" />
-            </div>
-        </form>
+<div class="container">
+    <div class="card shadow p-4 mb-5 bg-white rounded">
+        <div class="card-body">
+            <form asp-route-courseId="@Model.Id" asp-action="Edit" method="post">
+                <input type="hidden" asp-for="@Model.Id" />
+                <h4 class="mb-3">Course Details</h4>
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">Course Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter course title">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ImageUrl" class="form-label">Course Image URL</label>
+                    <input asp-for="ImageUrl" class="form-control" placeholder="https://example.com/course.jpg">
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StartDate" class="form-label">Start Date</label>
+                    <input asp-for="StartDate" class="form-control" placeholder="DD/MM/YYYY">
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EndDate" class="form-label">End Date</label>
+                    <input asp-for="EndDate" class="form-control" placeholder="DD/MM/YYYY">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Course Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Describe the course"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" class="form-select">
+                        <option value="">Select a category</option>
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <h4 class="mb-3">Instructor Details</h4>
+                <div class="mb-3">
+                    <label asp-for="Instructor.FirstName" class="form-label">First Name</label>
+                    <input asp-for="Instructor.FirstName" class="form-control" placeholder="Instructor's first name">
+                    <span asp-validation-for="Instructor.FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Instructor.LastName" class="form-label">Last Name</label>
+                    <input asp-for="Instructor.LastName" class="form-control" placeholder="Instructor's last name">
+                    <span asp-validation-for="Instructor.LastName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Instructor.Photo" class="form-label">Portrait URL</label>
+                    <input asp-for="Instructor.Photo" class="form-control" placeholder="https://example.com/instructor.jpg">
+                    <span asp-validation-for="Instructor.Photo" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Instructor.Bio" class="form-label">Bio</label>
+                    <textarea asp-for="Instructor.Bio" class="form-control" rows="3" placeholder="Short biography of the instructor"></textarea>
+                    <span asp-validation-for="Instructor.Bio" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a asp-area="" asp-controller="Course" asp-action="All" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
-                <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
 }
