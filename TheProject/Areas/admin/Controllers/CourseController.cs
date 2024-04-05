@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 using System.Globalization;
 using TheProject.Core.Contracts;
 using TheProject.Core.Models.Course;
@@ -116,18 +115,28 @@ namespace TheProject.Areas.admin.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Delete(Guid courseId)
         {
-            try
+            if (await _courseService.CourseExistsAsync(courseId) == false)
             {
-                await _courseService.DeleteCourseAsync(courseId);
+                return BadRequest();
             }
-            catch (Exception ex)
+
+            var course = await _courseService.GetCourseViewModelByIdAsync(courseId);
+
+            return View(course);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(CourseViewModel model)
+        {
+            if (await _courseService.CourseExistsAsync(model.Id) == false)
             {
-                ModelState.AddModelError("", ex.Message);
-                return RedirectToAction("All", "Course", new { area = "" });
+                return BadRequest();
             }
+
+            await _courseService.DeleteCourseAsync(model.Id);
 
             return RedirectToAction("All", "Course", new { area = "" });
         }
