@@ -39,7 +39,8 @@ namespace TheProject.Core.Services
                                  Id = r.Id,
                                  Rating = r.Rating,
                                  Description = r.Description,
-                                 CourseId = r.CourseId
+                                 CourseId = r.CourseId,
+                                 Username = r.User.UserName
                              })
                              .ToListAsync();
         }

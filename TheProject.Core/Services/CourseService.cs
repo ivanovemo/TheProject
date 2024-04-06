@@ -84,6 +84,7 @@ namespace TheProject.Core.Services
                             .Include(c => c.Instructor)
                             .Include(c => c.Category)
                             .Include(c => c.Reviews)
+                                .ThenInclude(r => r.User)
                             .FirstOrDefaultAsync(c => c.Id == courseId);
         }
 

@@ -14,5 +14,6 @@ namespace TheProject.Core.Models.Review
         [Required(ErrorMessage = ErrorMessages.Required)]
         public string Description { get; set; } = string.Empty;
         public Guid CourseId { get; set; }
+        public string Username { get; set; } = string.Empty;
     }
 }
