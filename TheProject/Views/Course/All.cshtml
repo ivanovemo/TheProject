@@ -1,47 +1,51 @@
 ﻿@model IEnumerable<CourseViewModel>
 
 @{
-    ViewData["Title"] = "All Courses";
+    ViewData["Title"] = "Explore Our Courses";
 }
 
-<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+<h2 class="text-center my-5 display-4">@ViewData["Title"]</h2>
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row g-4">
         @foreach (var course in Model)
         {
-            <div class="col-md-4 d-flex align-items-stretch">
-                <div class="card mb-4 shadow" style="width: 100%;">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
                     <img src="@course.ImageUrl" alt="Course Image" class="card-img-top" style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@course.Title</h5>
-                        <p class="card-text">
-                            <small class="text-muted">
-                                Instructor:
-                                <a style="text-decoration:none" href="@Url.Action("Info", "Instructor", new { instructorId = course.Instructor.Id })" class="text-primary">
-                                    @course.Instructor.FirstName @course.Instructor.LastName
-                                </a>
-                            </small>
+                        <p class="card-text text-muted">
+                            Instructor:
+                                <a asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@course.Instructor.Id" class="text-decoration-none text-primary">@course.Instructor.FirstName @course.Instructor.LastName</a>
                         </p>
-                        <p class="card-text">Interested: @course.Interested</p>
-                        <p class="card-text">Category: @course.Category</p>
-                        <div class="mt-auto">
-                            <a href="@Url.Action("Details", "Course", new { courseId = @course.Id })" class="btn btn-info mb-2">Details</a>
-                            @if (User?.Identity != null && User.Identity.IsAuthenticated)
+                        <p class="card-text"><small>Date: @course.StartDate - @course.EndDate</small></p>
+                        <p class="card-text">Interested: <span class="badge bg-secondary">@course.Interested</span></p>
+                        <p class="card-text">Category: <span class="badge bg-success">@course.Category</span></p>
+                    </div>
+                    <div class="card-footer bg-white border-0 mt-auto">
+                        <a asp-controller="Course" asp-action="Details" asp-route-courseId="@course.Id" class="btn btn-outline-info me-2">Details</a>
+                        @if (User?.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <form asp-controller="Course" asp-action="Join" asp-route-courseId="@course.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-outline-success">Join</button>
+                            </form>
+                            @if (User.IsInRole("admin"))
                             {
-                                <form asp-controller="Course" asp-action="Join" asp-route-courseId="@course.Id" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-success mb-2">Join</button>
-                                </form>
-                                @if (User.IsInRole("admin"))
-                                {
-                                    <a asp-area="admin" asp-controller="Course" asp-action="Edit" asp-route-courseId="@course.Id" class="btn btn-warning mb-2">Edit</a>
-                                    <a asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@course.Id" class="btn btn-danger mb-2">Delete</a>
-                                }
+                                <a asp-area="admin" asp-controller="Course" asp-action="Edit" asp-route-courseId="@course.Id" class="btn btn-outline-warning me-2">Edit</a>
+                                <a asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@course.Id" class="btn btn-outline-danger">Delete</a>
                             }
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
+
+<style>
+    .card:hover {
+        transform: scale(1.03);
+        transition: all .2s ease-in-out;
+    }
+</style>

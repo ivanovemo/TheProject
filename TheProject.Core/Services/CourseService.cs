@@ -117,6 +117,8 @@ namespace TheProject.Core.Services
                         FirstName = uc.Course.Instructor.FirstName,
                         LastName = uc.Course.Instructor.LastName,
                     },
+                    StartDate = uc.Course.StartDate.ToString(DateFormat.Format),
+                    EndDate = uc.Course.EndDate.ToString(DateFormat.Format),
                     ImageUrl = uc.Course.ImageUrl,
                     Interested = uc.Course.Interested,
                     Category = uc!.Course.Category.Name
@@ -176,7 +178,7 @@ namespace TheProject.Core.Services
             if (existingCourse != null)
             {
                 var courseToDecrease = await GetCourseAsync(courseId);
-                courseToDecrease.Interested--;
+                courseToDecrease!.Interested--;
 
                 user.UsersCourses.Remove(existingCourse);
                 await _context.SaveChangesAsync();
