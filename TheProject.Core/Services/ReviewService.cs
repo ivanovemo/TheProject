@@ -26,7 +26,7 @@ namespace TheProject.Core.Services
                 UserId = userId
             };
 
-            _context.Reviews.Add(review);
+            await _context.Reviews.AddAsync(review);
             await _context.SaveChangesAsync();
         }
 
