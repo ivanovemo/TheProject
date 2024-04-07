@@ -10,10 +10,12 @@ namespace TheProject.Controllers
     {
         private readonly ICourseService _courseService;
         private readonly IReviewService _reviewService;
-        public CourseController(ICourseService courseService, IReviewService reviewService)
+        private readonly ILectureService _lectureService;
+        public CourseController(ICourseService courseService, IReviewService reviewService, ILectureService lectureService)
         {
             _courseService = courseService;
             _reviewService = reviewService;
+            _lectureService = lectureService;
         }
 
         [HttpGet]
@@ -43,6 +45,7 @@ namespace TheProject.Controllers
 
             var model = await _courseService.CourseDetailsAsync(course);
             model.Reviews = await _reviewService.GetReviewsByCourseIdAsync(courseId);
+            model.Lectures = await _lectureService.GetLecturesByCourseId(courseId);
 
             return View(model);
         }

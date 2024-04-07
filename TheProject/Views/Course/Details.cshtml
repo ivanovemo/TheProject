@@ -10,12 +10,12 @@
         <div class="col-md-10">
             <div class="container py-4">
                 <div class="row g-4 align-items-center">
-                    <div class="col-lg-6">
+                    <h1 class="display-5">@Model.Title</h1>
+                    <div class="col-lg-4">
                         <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded shadow">
                     </div>
 
-                    <div class="col-lg-6">
-                        <h1 class="display-5">@Model.Title</h1>
+                    <div class="col-lg-4">
                         <p class="lead">
                             <strong>Instructor:</strong>
                             <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="text-decoration-none instructor-link" title="Click to view more about @Model.Instructor.FirstName @Model.Instructor.LastName">
@@ -37,6 +37,26 @@
                                 <a asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id" class="btn btn-danger">Delete</a>
                             }
                         </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Lectures</h3>
+                        @if (Model.Lectures.Any())
+                        {
+                            <div class="list-group">
+                                @foreach (var lecture in Model.Lectures)
+                                {
+                                    <a class="list-group-item list-group-item-action">
+                                        <h5 class="mb-1">@lecture.Title</h5>
+                                        <small>Starts: @lecture.StartDate</small>
+                                        <p class="mb-1">@lecture.Description</p>
+                                    </a>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>No lectures available for this course yet.</p>
+                        }
                     </div>
                 </div>
             </div>

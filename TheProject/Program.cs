@@ -36,6 +36,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<ILectureService, LectureService>();
 
 var app = builder.Build();
 
