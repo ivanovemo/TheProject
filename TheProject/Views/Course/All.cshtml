@@ -20,7 +20,7 @@
                                 <a asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@course.Instructor.Id" class="text-decoration-none text-primary">@course.Instructor.FirstName @course.Instructor.LastName</a>
                         </p>
                         <p class="card-text"><small>Date: @course.StartDate - @course.EndDate</small></p>
-                        <p class="card-text">Interested: <span class="badge bg-secondary">@course.Interested</span></p>
+                        <p class="card-text">Participants: <span class="badge bg-secondary">@course.Interested</span></p>
                         <p class="card-text">Category: <span class="badge bg-success">@course.Category</span></p>
                     </div>
                     <div class="card-footer bg-white border-0 mt-auto">
