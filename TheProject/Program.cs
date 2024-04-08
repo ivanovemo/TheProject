@@ -79,4 +79,59 @@ app.UseEndpoints(endpoints =>
 
 app.MapRazorPages();
 
+SeedRoles(app.Services).Wait();
+SeedUserRoles(app.Services).Wait();
+
 app.Run();
+
+static async Task SeedRoles(IServiceProvider serviceProvider)
+{
+    using (var scope = serviceProvider.CreateScope())
+    {
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+        string[] roleNames = { "admin", "user" };
+        foreach (var roleName in roleNames)
+        {
+            var roleExist = await roleManager.RoleExistsAsync(roleName);
+            if (!roleExist)
+            {
+                await roleManager.CreateAsync(new IdentityRole(roleName));
+            }
+        }
+    }
+}
+
+
+static async Task SeedUserRoles(IServiceProvider serviceProvider)
+{
+    using (var scope = serviceProvider.CreateScope())
+    {
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+        var adminRoleExists = await roleManager.RoleExistsAsync("admin");
+        if (!adminRoleExists)
+        {
+            await roleManager.CreateAsync(new IdentityRole("admin"));
+        }
+
+        var userRoleExists = await roleManager.RoleExistsAsync("user");
+        if (!userRoleExists)
+        {
+            await roleManager.CreateAsync(new IdentityRole("user"));
+        }
+
+        var adminUser = await userManager.FindByEmailAsync("admin1@gmail.com");
+        if (adminUser != null && !(await userManager.IsInRoleAsync(adminUser, "admin")))
+        {
+            await userManager.AddToRoleAsync(adminUser, "admin");
+        }
+
+        var userUser = await userManager.FindByEmailAsync("user1@gmail.com");
+        if (userUser != null && !(await userManager.IsInRoleAsync(userUser, "user")))
+        {
+            await userManager.AddToRoleAsync(userUser, "user");
+        }
+    }
+}
