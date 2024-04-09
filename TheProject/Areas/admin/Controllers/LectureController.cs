@@ -35,7 +35,7 @@ namespace TheProject.Areas.admin.Controllers
             {
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
-                    TempData["ErrorMessages"] = error.ErrorMessage;
+                    TempData["LectureErrorMessages"] = error.ErrorMessage;
                 }
 
                 var courseId = HttpContext.Request.Query["courseId"].ToString();

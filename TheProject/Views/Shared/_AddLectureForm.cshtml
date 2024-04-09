@@ -20,16 +20,12 @@
         <div class="mb-3">
             <label for="lectureStartDate" class="form-label">Start Date<span class="text-danger">*</span></label>
             <input type="datetime-local" class="form-control" id="lectureStartDate" name="StartDate">
-            <div class="invalid-feedback">
-                Please choose a start date and time.
-            </div>
+            <span asp-validation-for="StartDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label for="lectureDuration" class="form-label">Duration (minutes)<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="lectureDuration" name="Duration" placeholder="15-300">
-            <div class="invalid-feedback">
-                Please specify the lecture duration.
-            </div>
+            <span asp-validation-for="Duration" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Add Lecture</button>
     </form>
