@@ -109,7 +109,9 @@
                 }
                 else
                 {
-                    <p>No reviews yet. Be the first to review!</p>
+                    <div class="alert alert-info" role="alert">
+                        No reviews yet. Be the first to review!
+                    </div>
                 }
             </div>
             @if (User?.Identity != null && User.Identity.IsAuthenticated && (User.IsInRole("admin") || User.IsInRole("user")))
@@ -119,9 +121,9 @@
                     <form asp-controller="Review" asp-action="Create" method="post">
                         <input type="hidden" asp-for="@Model.Id" name="courseId" />
                         <div class="mb-3">
-                            <label for="rating" class="form-label">Rating</label>
+                            <label for="rating" class="form-label">Rating<span class="text-danger">*</span></label>
                             <select class="form-select" id="rating" name="Rating" required>
-                                <option value="">Choose a rating</option>
+                                <option value="">Choose a rating...</option>
                                 @for (int i = 1; i <= 10; i++)
                                 {
                                     <option value="@i">@i</option>
@@ -129,7 +131,7 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Your Review</label>
+                            <label for="description" class="form-label">Your Review<span class="text-danger">*</span></label>
                             <textarea class="form-control" id="description" name="Description" rows="3" required placeholder="Share your experience..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit Review</button>
