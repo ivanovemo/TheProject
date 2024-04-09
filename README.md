@@ -31,3 +31,53 @@ git clone https://github.com/yourusername/TheProject.git
 2. **Configure the Database Connection**
 
 Navigate to the appsettings.json file and modify the connection string to match your database configuration:
+
+```bash
+"ConnectionStrings": {
+    "DefaultConnection": "YOUR_DATABASE_CONNECTION_STRING_HERE"
+}
+```
+
+3. **Update the Database**
+
+Run the following command to update the database with the required schema:
+
+```bash
+dotnet ef database update
+```
+
+4. **Running the Project**
+
+Once the database is set up, you can run the project using:
+```bash
+dotnet run
+```
+
+# Seeded Users
+
+To help you get started with testing, the platform is pre-seeded with two users:
+
+### Admin Account
+- **Username:** admin1
+- **Role:** admin
+
+### User Account
+- **Username:** user1
+- **Role:** user
+
+Use these credentials to log in and explore the functionalities available to each role.
+
+# Contributing
+
+We welcome contributions to TheProject! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
+
+# License
+
+This project is licensed under the MIT License - see the `LICENSE.md` file for details.
+
+# Acknowledgments
+
+- Hat tip to anyone whose code was used.
+- Inspiration, etc.
+
+**Thank you for choosing TheProject for your educational and administrative needs. We're excited to be a part of your journey in creating a dynamic and engaging learning environment.**
