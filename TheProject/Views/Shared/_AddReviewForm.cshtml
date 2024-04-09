@@ -1,10 +1,10 @@
 ﻿@using TheProject.Core.Models.Review
 @model ReviewViewModel
 
-<div class="review-form mt-5">
+<section class="review-form mt-5">
     <h4>Leave a Review</h4>
-    <form asp-controller="Review" asp-action="Create" asp-route-courseId="@Model.CourseId" method="post">
-        <input type="hidden" asp-for="@Model.Id" name="courseId" />
+    <form asp-controller="Review" asp-action="Create" method="post">
+        <input type="hidden" asp-for="@Model.CourseId" name="courseId" />
         <div class="mb-3">
             <label for="rating" class="form-label">Rating<span class="text-danger">*</span></label>
             <select class="form-select" id="rating" name="Rating" required>
@@ -23,7 +23,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit Review</button>
     </form>
-</div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
