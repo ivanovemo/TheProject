@@ -1,0 +1,36 @@
+﻿@using TheProject.Core.Models.Lecture
+@model LectureViewModel
+
+<section class="add-lecture-form mt-5">
+    <h4 class="mb-4">Add a New Lecture</h4>
+    <form asp-area="admin" asp-controller="Lecture" asp-action="Add" asp-route-courseId="@Model.CourseId" method="post" class="needs-validation" novalidate>
+        <input type="hidden" name="courseId" asp-for="@Model.CourseId" />
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="title" name="Title">
+            <span asp-validation-for="Title" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="lectureStartDate" class="form-label">Start Date<span class="text-danger">*</span></label>
+            <input type="datetime-local" class="form-control" id="lectureStartDate" name="StartDate">
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="lectureDuration" class="form-label">Duration (minutes)<span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="lectureDuration" name="Duration" placeholder="15-300">
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Lecture</button>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

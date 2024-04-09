@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TheProject.Core.Models.Category;
 using TheProject.Core.Models.Instructor;
+using TheProject.Core.Models.Lecture;
+using TheProject.Core.Models.Review;
 using static TheProject.Infrastructure.Constants.Constants;
 using ErrorMessages = TheProject.Infrastructure.Constants.Constants.ErrorMessages;
 
@@ -40,9 +42,7 @@ namespace TheProject.Core.Models.Course
         public string Category { get; set; } = string.Empty;
         public InstructorViewModel Instructor { get; set; } = new InstructorViewModel();
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
-        
-        //public IList<Lecture> Lectures { get; set; } = new List<Lecture>();
-        //public IList<Review> Reviews { get; set; } = new List<Review>();
-        //public IList<UserCourse> UserCourses { get; set; } = new List<UserCourse>();
+        public IList<ReviewViewModel> Reviews { get; set; } = new List<ReviewViewModel>();
+        public IList<LectureViewModel> Lectures { get; set; } = new List<LectureViewModel>();
     }
 }
