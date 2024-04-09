@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TheProject.Core.Contracts;
 using TheProject.Core.Services;
 using TheProject.Infrastructure.Data;
+using TheProject.Infrastructure.Data.Configuration;
 using TheProject.Infrastructure.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -76,6 +77,9 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+
+await RolesConfiguration.SeedRoles(app.Services);
+await UserRolesConfiguration.SeedUserRoles(app.Services);
 
 app.MapRazorPages();
 
