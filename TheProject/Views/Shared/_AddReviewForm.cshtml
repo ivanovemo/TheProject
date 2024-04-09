@@ -3,7 +3,7 @@
 
 <section class="review-form mt-5">
     <h4>Leave a Review</h4>
-    <form asp-controller="Review" asp-action="Create" method="post">
+    <form asp-controller="Review" asp-action="Create" asp-route-courseId="@Model.CourseId" method="post">
         <input type="hidden" asp-for="@Model.CourseId" name="courseId" />
         <div class="mb-3">
             <label for="rating" class="form-label">Rating<span class="text-danger">*</span></label>
