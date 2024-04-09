@@ -59,11 +59,20 @@
                                 </h2>
                                 <div id="@($"collapse{lectureId}")" class="accordion-collapse collapse" aria-labelledby="@($"heading{lectureId}")" data-bs-parent="#lectureAccordion">
                                     <div class="accordion-body bg-light p-4">
-                                        <div class="mb-2">
-                                            <strong>Starts: </strong> <p class="text-muted">@lecture.StartDate</p>
-                                            <strong>Duration: </strong> <p>@lecture.Duration minutes</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <div class="mb-2">
+                                                    <strong>Starts: </strong> <p class="text-muted d-inline">@lecture.StartDate</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <strong>Duration: </strong> <p class="d-inline">@lecture.Duration minutes</p>
+                                                </div>
+                                                <p class="mb-0">@lecture.Description</p>
+                                            </div>
+                                            <a href="#" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                                <i style="padding-left: 0.2em" class="fas fa-play"></i>
+                                            </a>
                                         </div>
-                                        <p class="mb-0">@lecture.Description</p>
                                     </div>
                                 </div>
                             </div>
