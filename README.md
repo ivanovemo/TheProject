@@ -42,13 +42,20 @@ Navigate to the appsettings.json file and modify the connection string to match 
 
 Run the following command to update the database with the required schema:
 
+Using terminal:
 ```bash
 dotnet ef database update
+```
+
+Using Package Manager Console:
+```bash
+Update-Database
 ```
 
 4. **Running the Project**
 
 Once the database is set up, you can run the project using:
+
 ```bash
 dotnet run
 ```
@@ -66,10 +73,6 @@ To help you get started with testing, the platform is pre-seeded with two users:
 - **Role:** user
 
 Use these credentials to log in and explore the functionalities available to each role.
-
-# Contributing
-
-We welcome contributions to TheProject! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
 
 # License
 
