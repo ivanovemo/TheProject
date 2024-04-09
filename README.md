@@ -1,6 +1,6 @@
 # TheProject
 
-Welcome to **TheProject**, an innovative online course platform designed to streamline the learning experience for students while offering administrators and instructors a robust set of tools to create, manage, and deliver educational content.
+Welcome to **TheProject**, an innovative online course platform designed to streamline the learning experience for students while offering administrators a robust set of tools to create, manage, and deliver educational content.
 
 ## Features
 
