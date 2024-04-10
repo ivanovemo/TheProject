@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TheProject.Core.Contracts;
-
 namespace TheProject.Controllers
 {
     [Authorize]
@@ -20,11 +19,15 @@ namespace TheProject.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All(string searchQuery = null!)
+        public async Task<IActionResult> All(string searchQuery, int pageIndex = 1)
         {
-            var courses = await _courseService.GetAllCoursesAsync(searchQuery);
+            const int pageSize = 6;
+            var models = await _courseService.GetAllCoursesAsync(searchQuery, pageIndex, pageSize);
 
-            return View(courses);
+            ViewBag.HasNextPage = models.HasNextPage;
+            ViewBag.PageIndex = pageIndex;
+
+            return View(models);
         }
 
         [HttpGet]

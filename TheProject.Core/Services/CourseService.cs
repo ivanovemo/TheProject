@@ -3,9 +3,9 @@ using TheProject.Core.Contracts;
 using TheProject.Core.Models.Category;
 using TheProject.Core.Models.Course;
 using TheProject.Core.Models.Instructor;
-using TheProject.Core.Models.Review;
 using TheProject.Infrastructure.Data;
 using TheProject.Infrastructure.Data.Models;
+using TheProject.Infrastructure.Helpers;
 using DateFormat = TheProject.Infrastructure.Constants.Constants.Date;
 
 namespace TheProject.Core.Services
@@ -19,7 +19,7 @@ namespace TheProject.Core.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(string searchQuery = null!)
+        public async Task<PaginatedList<CourseViewModel>> GetAllCoursesAsync(string searchQuery, int pageIndex = 1, int pageSize = 3)
         {
             IQueryable<Course> query = _context.Courses;
 
@@ -28,9 +28,14 @@ namespace TheProject.Core.Services
                 query = query.Where(c => EF.Functions.Like(c.Title, $"%{searchQuery}%"));
             }
 
+            var totalCourses = await query.CountAsync();
+
             var courses = await query
                 .Include(c => c.Category)
                 .Include(c => c.Instructor)
+                .OrderBy(c => c.StartDate)
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize)
                 .Select(c => new CourseViewModel
                 {
                     Id = c.Id,
@@ -50,7 +55,7 @@ namespace TheProject.Core.Services
                 })
                 .ToListAsync();
 
-            return courses;
+            return new PaginatedList<CourseViewModel>(courses, totalCourses, pageIndex, pageSize);
         }
 
         public async Task<CourseViewModel> CourseDetailsAsync(Course currentCourse)
