@@ -48,6 +48,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact us</a>
                         </li>
                     </ul>
+                    <div class="text-center sm-4">
+                        <form asp-controller="Course" asp-action="All" method="get" class="d-flex justify-content-center">
+                            <input type="text" name="searchQuery" class="form-control me-2" value="@ViewData["searchQuery"]" placeholder="Search courses...">
+                            <button type="submit" class="btn btn-outline-success">Search</button>
+                        </form>
+                    </div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

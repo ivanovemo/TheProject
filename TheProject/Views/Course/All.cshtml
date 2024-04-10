@@ -11,7 +11,7 @@
         @foreach (var course in Model)
         {
             <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 border-0 custom-shadow">
                     <img src="@course.ImageUrl" alt="Course Image" class="card-img-top" style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@course.Title</h5>
@@ -40,12 +40,26 @@
                 </div>
             </div>
         }
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(ViewBag.PageIndex > 1 ? "" : "disabled")">
+                    <a asp-controller="Course" asp-action="All" asp-route-pageIndex="@(ViewBag.PageIndex - 1)" class="page-link">Previous</a>
+                </li>
+                <li class="page-item @(ViewBag.HasNextPage ? "" : "disabled")">
+                    <a asp-controller="Course" asp-action="All" asp-route-pageIndex="@(ViewBag.PageIndex + 1)" class="page-link">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 
 <style>
     .card:hover {
-        transform: scale(1.03);
+        transform: scale(1.05);
         transition: all .2s ease-in-out;
+    }
+
+    .custom-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 </style>
