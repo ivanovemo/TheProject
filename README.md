@@ -66,10 +66,12 @@ To help you get started with testing, the platform is pre-seeded with two users:
 
 ### Admin Account
 - **Username:** admin1
+- **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
 - **Role:** admin
 
 ### User Account
 - **Username:** user1
+- - **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
 - **Role:** user
 
 Use these credentials to log in and explore the functionalities available to each role.
