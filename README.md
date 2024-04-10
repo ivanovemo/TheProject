@@ -71,7 +71,7 @@ To help you get started with testing, the platform is pre-seeded with two users:
 
 ### User Account
 - **Username:** user1
-- - **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
+- **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
 - **Role:** user
 
 Use these credentials to log in and explore the functionalities available to each role.
