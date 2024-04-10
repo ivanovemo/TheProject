@@ -80,9 +80,4 @@ Use these credentials to log in and explore the functionalities available to eac
 
 This project is licensed under the MIT License - see the `LICENSE.md` file for details.
 
-# Acknowledgments
-
-- Hat tip to anyone whose code was used.
-- Inspiration, etc.
-
 **Thank you for choosing TheProject for your educational and administrative needs. We're excited to be a part of your journey in creating a dynamic and engaging learning environment.**
