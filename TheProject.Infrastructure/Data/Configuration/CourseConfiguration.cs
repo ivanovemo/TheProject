@@ -69,9 +69,65 @@ namespace TheProject.Infrastructure.Data.Configuration
                     EndDate = new DateTime(2024, 8, 30),
                     CategoryId = 2,
                     Interested = 75
+                },
+                new Course()
+                {
+                    Id = Guid.Parse("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                    Title = "Sustainable Living",
+                    Description = "An exploration of sustainable living practices including renewable energy, green building, and sustainable agriculture.",
+                    ImageUrl = "https://media.restless.co.uk/uploads/2021/04/13_tips_for_sustainable_living.jpg",
+                    StartDate = new DateTime(2024, 6, 15),
+                    EndDate = new DateTime(2024, 7, 15),
+                    CategoryId = 5,
+                    Interested = 65
+                },
+                new Course()
+                {
+                    Id = Guid.Parse("c65ee8c7-189a-4730-9171-d89324a534de"),
+                    Title = "Introduction to Robotics",
+                    Description = "Get hands-on experience building and programming your first robot using Arduino and Raspberry Pi.",
+                    ImageUrl = "https://miro.medium.com/v2/resize:fit:960/1*o2QkJWlZWqtDa-g3luWT1Q.jpeg",
+                    StartDate = new DateTime(2024, 7, 1),
+                    EndDate = new DateTime(2024, 8, 1),
+                    CategoryId = 6,
+                    Interested = 80
+                },
+                new Course()
+                {
+                    Id = Guid.Parse("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                    Title = "Spanish for Beginners",
+                    Description = "Learn Spanish from scratch! Master the basics of conversation, grammar, and vocabulary with this interactive course.",
+                    ImageUrl = "https://effortlessconversations.com/wp-content/uploads/2023/10/is-spanish-hard-learn-spanish-text-on-laptop-1024x683.jpg",
+                    StartDate = new DateTime(2024, 7, 20),
+                    EndDate = new DateTime(2024, 9, 20),
+                    CategoryId = 7,
+                    Interested = 95
+                },
+                new Course()
+                {
+                    Id = Guid.Parse("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                    Title = "Mental Health First Aid",
+                    Description = "Learn how to offer initial support to adults who are developing a mental health problem or experiencing a mental health crisis.",
+                    ImageUrl = "https://addictionstraininginstitute.com/wp-content/uploads/2023/05/image-26.png",
+                    StartDate = new DateTime(2024, 8, 10),
+                    EndDate = new DateTime(2024, 9, 10),
+                    CategoryId = 4,
+                    Interested = 70
+                },
+                new Course()
+                {
+                    Id = Guid.Parse("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                    Title = "Creative Writing",
+                    Description = "Unlock your creative potential and discover how to craft compelling stories with character, plot, and heart.",
+                    ImageUrl = "https://www.artshub.com.au/wp-content/uploads/sites/2/2022/05/shutterstock_516275947-e1652150413730.jpg",
+                    StartDate = new DateTime(2024, 9, 5),
+                    EndDate = new DateTime(2024, 10, 5),
+                    CategoryId = 3,
+                    Interested = 85
                 }
+                
             };
-
+            
             return courses;
         }
     }
