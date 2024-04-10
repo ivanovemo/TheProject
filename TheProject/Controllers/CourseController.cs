@@ -20,11 +20,11 @@ namespace TheProject.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All(string searchQuery = null!)
         {
-            var model = await _courseService.GetAllCoursesAsync();
+            var courses = await _courseService.GetAllCoursesAsync(searchQuery);
 
-            return View(model);
+            return View(courses);
         }
 
         [HttpGet]

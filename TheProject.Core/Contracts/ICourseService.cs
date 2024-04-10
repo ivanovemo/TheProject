@@ -6,7 +6,7 @@ namespace TheProject.Core.Contracts
 {
     public interface ICourseService
     {
-        Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync();
+        Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(string searchQuery = null!);
         Task AddCourseAsync(CourseViewModel model, DateTime startDate, DateTime endDate);
         Task EditCourseAsync(Guid courseId, CourseViewModel model, DateTime startDate, DateTime endDate);
         Task DeleteCourseAsync(Guid courseId);

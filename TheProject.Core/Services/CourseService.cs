@@ -19,9 +19,16 @@ namespace TheProject.Core.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync()
+        public async Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(string searchQuery = null!)
         {
-            var courses = await _context.Courses
+            IQueryable<Course> query = _context.Courses;
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                query = query.Where(c => EF.Functions.Like(c.Title, $"%{searchQuery}%"));
+            }
+
+            var courses = await query
                 .Include(c => c.Category)
                 .Include(c => c.Instructor)
                 .Select(c => new CourseViewModel
