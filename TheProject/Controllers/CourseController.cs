@@ -36,7 +36,7 @@ namespace TheProject.Controllers
         {
             if (await _courseService.CourseExistsAsync(courseId) == false)
             {
-                return RedirectToAction(nameof(All));
+                return NotFound();
             }
 
             var course = await _courseService.GetCourseAsync(courseId);
