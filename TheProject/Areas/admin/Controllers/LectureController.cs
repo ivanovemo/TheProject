@@ -29,6 +29,7 @@ namespace TheProject.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(LectureViewModel model)
         {
             if (!ModelState.IsValid)

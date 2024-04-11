@@ -65,6 +65,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Join(Guid courseId)
         {
             var userId = GetUserId();
@@ -88,6 +89,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Leave(Guid courseId)
         {
             string userId = GetUserId();

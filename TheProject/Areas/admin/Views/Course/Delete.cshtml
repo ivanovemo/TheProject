@@ -30,6 +30,7 @@
                 </div>
                 <div class="card-footer">
                     <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@Model.Id" />
                         <button type="submit" class="btn btn-danger">Confirm Delete</button>
                     </form>

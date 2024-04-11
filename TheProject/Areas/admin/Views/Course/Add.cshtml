@@ -11,6 +11,7 @@
     <div class="card shadow p-4 mb-5 bg-white rounded">
         <div class="card-body">
             <form asp-action="Add" method="post">
+                @Html.AntiForgeryToken()
                 <h4 class="mb-3">Course Details</h4>
                 <div class="form-group mb-3">
                     <label asp-for="@Model.Title" class="form-label">Course Title<span class="text-danger">*</span></label>

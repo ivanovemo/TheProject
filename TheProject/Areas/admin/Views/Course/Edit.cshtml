@@ -15,6 +15,7 @@
     <div class="card shadow p-4 mb-5 bg-white rounded">
         <div class="card-body">
             <form asp-route-courseId="@Model.Id" asp-action="Edit" method="post">
+                @Html.AntiForgeryToken()
                 <input type="hidden" asp-for="@Model.Id" />
                 <h4 class="mb-3">Course Details</h4>
                 <div class="mb-3">

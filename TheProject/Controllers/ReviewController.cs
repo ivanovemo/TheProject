@@ -17,6 +17,7 @@ namespace TheProject.Controllers
 
         [HttpPost]
         [Authorize(Roles = "user, admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ReviewViewModel model)
         {
             if (!ModelState.IsValid)
