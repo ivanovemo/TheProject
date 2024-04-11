@@ -28,6 +28,7 @@
                         @if (User?.Identity != null && User.Identity.IsAuthenticated)
                         {
                             <form asp-controller="Course" asp-action="Join" asp-route-courseId="@course.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-outline-success">Join</button>
                             </form>
                             @if (User.IsInRole("admin"))

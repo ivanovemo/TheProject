@@ -80,6 +80,7 @@ namespace TheProject.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid courseId, CourseViewModel model)
         {
             if (await _courseService.CourseExistsAsync(courseId) == false)
@@ -129,6 +130,7 @@ namespace TheProject.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(CourseViewModel model)
         {
             if (await _courseService.CourseExistsAsync(model.Id) == false)

@@ -28,6 +28,7 @@
                     <div class="card-footer bg-white">
                         <a asp-controller="Course" asp-action="Details" asp-route-courseId="@course.Id" class="btn btn-info me-2">Details</a>
                         <form asp-controller="Course" asp-action="Leave" asp-route-courseId="@course.Id" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
                             <button type="submit" class="btn btn-outline-danger me-2">Leave</button>
                         </form>
                     </div>

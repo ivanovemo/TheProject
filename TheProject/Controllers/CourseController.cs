@@ -36,7 +36,7 @@ namespace TheProject.Controllers
         {
             if (await _courseService.CourseExistsAsync(courseId) == false)
             {
-                return RedirectToAction(nameof(All));
+                return NotFound();
             }
 
             var course = await _courseService.GetCourseAsync(courseId);
@@ -65,6 +65,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Join(Guid courseId)
         {
             var userId = GetUserId();
@@ -88,6 +89,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Leave(Guid courseId)
         {
             string userId = GetUserId();

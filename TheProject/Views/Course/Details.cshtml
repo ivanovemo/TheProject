@@ -32,6 +32,7 @@
                             <p><strong>Participants: </strong> @Model.Interested</p>
                             <div class="mt-4">
                                 <form asp-controller="Course" asp-action="Join" asp-route-courseId="@Model.Id" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
                                     <button type="submit" class="btn btn-success me-2">Join Course</button>
                                 </form>
                                 @if (User?.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))

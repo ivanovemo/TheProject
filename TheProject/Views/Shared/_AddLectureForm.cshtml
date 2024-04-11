@@ -4,6 +4,7 @@
 <section class="add-lecture-form mt-5">
     <h4 class="mb-4">Add a New Lecture</h4>
     <form asp-area="admin" asp-controller="Lecture" asp-action="Add" asp-route-courseId="@Model.CourseId" method="post" class="needs-validation" novalidate>
+        @Html.AntiForgeryToken()
         <input type="hidden" name="courseId" asp-for="@Model.CourseId" />
         <div class="mb-3">
             <label for="Title" class="form-label">Title<span class="text-danger">*</span></label>
