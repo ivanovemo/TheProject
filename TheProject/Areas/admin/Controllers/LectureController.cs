@@ -63,5 +63,25 @@ namespace TheProject.Areas.admin.Controllers
                 return View(model);
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(Guid lectureId)
+        {
+            if (lectureId == Guid.Empty)
+            {
+                return BadRequest();
+            }
+            var lecture = await _lectureService.GetLectureByIdAsync(lectureId);
+
+            if (lecture == null)
+            {
+                return NotFound();
+            }
+
+            await _lectureService.DeleteLectureAsync(lectureId);
+            
+            return RedirectToAction("Details", "Course", new { area = "", courseId = lecture.CourseId });
+        }
     }
 }

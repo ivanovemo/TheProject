@@ -7,5 +7,7 @@ namespace TheProject.Core.Contracts
     {
         Task AddLectureAsync(LectureViewModel model, DateTime startDate);
         Task<IList<LectureViewModel>> GetLecturesByCourseId(Guid courseId);
+        Task<LectureViewModel> GetLectureByIdAsync(Guid lectureId);
+        Task DeleteLectureAsync(Guid lectureId);
     }
 }
