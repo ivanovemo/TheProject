@@ -25,7 +25,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/TheProject.git
+git clone https://github.com/ivanovemo/TheProject.git
 ```
 
 2. **Configure the Database Connection**
@@ -66,12 +66,12 @@ To help you get started with testing, the platform is pre-seeded with two users:
 
 ### Admin Account
 - **Username:** admin1
-- **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
+- **Password:** - Check in UserConfiguration.cs file
 - **Role:** admin
 
 ### User Account
 - **Username:** user1
-- **Password:** - Check in TheProject.Infrastructure.Data.Configuration.UserConfiguration
+- **Password:** - Check in UserConfiguration.cs file
 - **Role:** user
 
 Use these credentials to log in and explore the functionalities available to each role.
