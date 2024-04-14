@@ -26,10 +26,10 @@
                         <p class="card-text">Category: <span class="badge bg-success">@course.Category</span></p>
                     </div>
                     <div class="card-footer bg-white">
-                        <a asp-controller="Course" asp-action="Details" asp-route-courseId="@course.Id" class="btn btn-info me-2">Details</a>
+                        <a asp-controller="Course" asp-action="Details" asp-route-courseId="@course.Id" class="btn btn-outline-primary me-2"><i class="fas fa-info-circle"></i> Details</a>
                         <form asp-controller="Course" asp-action="Leave" asp-route-courseId="@course.Id" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-outline-danger me-2">Leave</button>
+                            <button type="submit" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i> Leave</button>
                         </form>
                     </div>
                 </div>

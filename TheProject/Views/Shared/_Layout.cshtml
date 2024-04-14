@@ -11,47 +11,47 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TheProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (this.User?.Identity == null && !this.User.Identity.IsAuthenticated)
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        @if (this.User?.Identity == null || !this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="All"><i class="fas fa-book-open"></i> All Courses</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="All">All Courses</a>
-                        </li>
                         @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="MyCourses">My Courses</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="MyCourses"><i class="fas fa-user-graduate"></i> My Courses</a>
                             </li>
-                        }
-                        @if (this.User?.Identity != null && this.User.Identity.IsAuthenticated && this.User.IsInRole("admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="admin" asp-controller="Course" asp-action="Add">Add course</a>
-                            </li>
+                            @if (this.User.IsInRole("admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="admin" asp-controller="Course" asp-action="Add"><i class="fas fa-plus-circle"></i> Add Course</a>
+                                </li>
+                            }
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About"><i class="fas fa-info-circle"></i> About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact us</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact"><i class="fas fa-envelope"></i> Contact Us</a>
                         </li>
                     </ul>
-                    <div class="text-center sm-4">
-                        <form asp-controller="Course" asp-action="All" method="get" class="d-flex justify-content-center">
-                            <input type="text" name="searchQuery" class="form-control me-2" value="@ViewData["searchQuery"]" placeholder="Search courses...">
-                            <button type="submit" class="btn btn-outline-success">Search</button>
+                    <div class="d-flex">
+                        <form asp-controller="Course" asp-action="All" method="get" class="d-flex">
+                            <input class="form-control me-2" type="search" name="searchQuery" placeholder="Search courses..." aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                     <partial name="_LoginPartial" />
@@ -66,7 +66,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container text-center">
             &copy; @DateTime.UtcNow.Year - TheProject
         </div>
     </footer>
