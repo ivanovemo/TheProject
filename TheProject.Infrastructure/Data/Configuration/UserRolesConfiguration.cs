@@ -41,6 +41,18 @@ namespace TheProject.Infrastructure.Data.Configuration
                 {
                     await userManager.AddToRoleAsync(userUser, "user");
                 }
+
+                var secondUser = await userManager.FindByEmailAsync("user2@gmail.com");
+                if (secondUser != null &&!(await userManager.IsInRoleAsync(secondUser, "user")))
+                {
+                    await userManager.AddToRoleAsync(secondUser, "user");
+                }
+
+                var thirdUser = await userManager.FindByEmailAsync("user3@gmail.com");
+                if (thirdUser != null && !(await userManager.IsInRoleAsync(thirdUser, "user")))
+                {
+                    await userManager.AddToRoleAsync(thirdUser, "user");
+                }
             }
         }
     }
