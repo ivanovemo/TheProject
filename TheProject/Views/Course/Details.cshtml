@@ -20,7 +20,7 @@
                             <h3>@Model.Title</h3>
                             <p>
                                 <strong>Instructor:</strong>
-                                <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="instructor-link">
+                                <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="instructor-link" style="text-decoration: none">
                                     @Model.Instructor.FirstName @Model.Instructor.LastName
                                 </a>
                             </p>
@@ -138,11 +138,3 @@
         </div>
     </div>
 </div>
-
-<style src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js">
-    .instructor-link:hover, .instructor-link:focus {
-        text-decoration: underline;
-        color: #007bff;
-        cursor: pointer;
-    }
-</style>
