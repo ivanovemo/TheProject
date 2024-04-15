@@ -14,7 +14,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
                     <form asp-controller="User" asp-action="Logout" asp-route-id="@UserManager.GetUserId(User)">
-                        <button class="btn btn-secondary" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                        <button class="dropdown-item" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
                     </form>
                 </li>
             </ul>
