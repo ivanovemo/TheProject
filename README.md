@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 Before you begin, ensure you have the following installed:
 - Git
 - .NET SDK 8.0
-- .dotnet-ef 8.0
+- dotnet-ef 8.0
 - An SQL Server instance for the database
 
 ### Installation
