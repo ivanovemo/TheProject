@@ -58,6 +58,6 @@ namespace TheProject.Infrastructure.Data
         public DbSet<Lecture> Lectures { get; set; } = null!;
         public DbSet<Instructor> Instructors { get; set; } = null!;
         public DbSet<Review> Reviews { get; set; } = null!;
-
+        public DbSet<UserCourse> UserCourses { get; set; } = null!;
     }
 }

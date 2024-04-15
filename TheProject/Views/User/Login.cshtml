@@ -5,28 +5,34 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <section>
-            <form id="account" method="post">
-                @Html.AntiForgeryToken()
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="text-center mb-3">
-                    <label asp-for="@Model.Username" class="form-label"></label>
-                    <input asp-for="@Model.Username" class="form-control" autocomplete="username" aria-required="true" />
-                    <span asp-validation-for="Username" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+                    <form id="account" method="post" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="@Model.Username" class="form-label">Username</label>
+                            <input asp-for="@Model.Username" class="form-control" placeholder="Enter your username" autocomplete="username" aria-required="true" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="@Model.Password" class="form-label">Password</label>
+                            <input asp-for="@Model.Password" type="password" class="form-control" placeholder="Enter your password" autocomplete="current-password" aria-required="true" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button id="login-submit" type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="text-center mb-3">
-                    <label asp-for="@Model.Password" class="form-label"></label>
-                    <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="text-center">
-                    <button id="login-submit" type="submit" class="btn btn-primary">Log in</button>
-                </div>
-            </form>
-        </section>
+            </div>
+        </div>
     </div>
 </div>

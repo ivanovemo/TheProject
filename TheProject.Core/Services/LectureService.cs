@@ -18,6 +18,11 @@ namespace TheProject.Core.Services
 
         public async Task AddLectureAsync(LectureViewModel model, DateTime startDate)
         {
+            if (!await _context.Courses.AnyAsync(c => c.Id == model.CourseId))
+            {
+                throw new ArgumentException($"No course found with ID {model.CourseId}. Cannot add lecture.");
+            }
+
             var lecture = new Lecture()
             {
                 Id = Guid.NewGuid(),
@@ -29,7 +34,7 @@ namespace TheProject.Core.Services
 
             };
 
-            await _context.Lectures.AddAsync(lecture);
+            _context.Lectures.Add(lecture);
             await _context.SaveChangesAsync();
         }
 
@@ -73,6 +78,11 @@ namespace TheProject.Core.Services
 
         public async Task<IList<LectureViewModel>> GetLecturesByCourseId(Guid courseId)
         {
+            if (!await _context.Courses.AnyAsync(c => c.Id == courseId))
+            {
+                throw new ArgumentException($"No course found with ID {courseId}. Cannot retrieve lectures.");
+            }
+
             return await _context.Lectures
                 .Where(l => l.CourseId == courseId)
                 .Select(l => new LectureViewModel()
