@@ -67,7 +67,7 @@
                                                 <p>@lecture.Description</p>
                                             </div>
                                             <div>
-                                                <a href="#" class="btn btn-primary rounded-circle" style="margin-bottom: 1px"><i class="fas fa-play" style="padding-left: 1px"></i></a>
+                                                <a href="https://www.youtube.com/watch?v=nrSlqAb4ZLw" target="_blank" class="btn btn-primary rounded-circle" style="margin-bottom: 1px"><i class="fas fa-play" style="padding-left: 1px"></i></a>
                                                 @if (User?.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))
                                                 {
                                                     <form asp-area="admin" asp-controller="Lecture" asp-action="Delete" asp-route-lectureId="@lecture.Id" method="post">
