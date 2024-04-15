@@ -19,18 +19,6 @@ namespace TheProject.Infrastructure.Data.Configuration
 
             var user = new User()
             {
-                Id = "0afe2b81-40c4-4ae7-9ebd-0ccaa1b0b64f",
-                UserName = "guest1",
-                NormalizedUserName = "guest1",
-                Email = "guest1@gmail.com",
-                NormalizedEmail = "GUEST1@GMAIL.COM"
-            };
-
-            user.PasswordHash = hasher.HashPassword(user, "guest123");
-            users.Add(user);
-
-            user = new User()
-            {
                 Id = "6b79f761-5a4e-4457-a53b-cfc7c36ab084",
                 UserName = "user1",
                 NormalizedUserName = "user1",

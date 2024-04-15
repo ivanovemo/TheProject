@@ -18,15 +18,20 @@ namespace TheProject.Core.Services
 
         public async Task<InstructorViewModel> GetInstructorByIdAsync(Guid instructorId)
         {
-            var courseInstructor = await _context.Instructors.FirstOrDefaultAsync(i => i.Id == instructorId);
+            var instructor = await _context.Instructors.FirstOrDefaultAsync(i => i.Id == instructorId);
+
+            if (instructor == null)
+            {
+                throw new ArgumentException("Invalid instructor ID.");
+            }
 
             var model = new InstructorViewModel()
             {
-                Id = courseInstructor.Id,
-                FirstName = courseInstructor.FirstName,
-                LastName = courseInstructor.LastName,
-                Photo = courseInstructor.Photo,
-                Bio = courseInstructor.Bio
+                Id = instructor.Id,
+                FirstName = instructor.FirstName,
+                LastName = instructor.LastName,
+                Photo = instructor.Photo,
+                Bio = instructor.Bio
             };
 
             return model;
