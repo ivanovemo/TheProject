@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TheProject.Areas.admin.Contracts;
+using TheProject.Areas.admin.Services;
 using TheProject.Core.Contracts;
 using TheProject.Core.Services;
 using TheProject.Infrastructure.Data;
@@ -38,6 +40,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<ILectureService, LectureService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 var app = builder.Build();
 
