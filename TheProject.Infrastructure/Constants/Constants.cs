@@ -49,13 +49,16 @@
         public static class Date
         {
             public const string Format = "dd/MM/yyyy";
+            public const string LectureFormat = "yyyy-MM-ddTHH:mm";
         }
 
         public static class ErrorMessages
         {
             public const string Required = "The field {0} is required!";
             public const string Length = "The field {0} must be between {2} and {1} characters long!";
-            public const string DateFormat = "The date must be in the format dd/MM/yyyy.";
+            public const string Range = "The field {0} must have a range between {1} and {2} minutes!";
+            public const string DateFormat = "The date must be in 'dd/MM/yyyy' format.";
+            public const string LectureDateFormat = "The date must be in 'yyyy-MM-ddTHH:mm' format.";
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿@using TheProject.Areas.admin.Models
+@model IEnumerable<UserRolesViewModel>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container mt-4">
+    <h2>@ViewBag.Title</h2>
+    <div class="table-responsive">
+        <table class="table table-hover shadow-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Admin Status</th>
+                    <th scope="col">Manage Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @if (user.IsAdmin)
+                            {
+                                <span class="badge bg-success">ADMIN</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">USER</span>
+                            }
+                        </td>
+                        <td>
+                            @if (user.IsAdmin)
+                            {
+                                <form asp-action="ChangeRole" asp-route-userId="@user.UserId" asp-route-makeAdmin="false" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm" title="Revoke admin privileges">
+                                        <i class="fas fa-user-shield"></i> <strong>Revoke Admin</strong>
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-action="ChangeRole" asp-route-userId="@user.UserId" asp-route-makeAdmin="true" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-success btn-sm" title="Grant admin privileges">
+                                        <i class="fas fa-user-cog"></i> <strong>Grant Admin</strong>
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

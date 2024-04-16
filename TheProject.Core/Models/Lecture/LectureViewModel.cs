@@ -21,12 +21,14 @@ namespace TheProject.Core.Models.Lecture
         public string Description { get; set; } = string.Empty;
 
         [Required]
+        [RegularExpression(@"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$",
+            ErrorMessage = ErrorMessages.LectureDateFormat)]
         public string StartDate { get; set; } = string.Empty;
         public Guid CourseId { get; set; }
 
         [Required(ErrorMessage = ErrorMessages.Required)]
         [Range(LectureConstants.MinDurationValue, LectureConstants.MaxDurationValue,
-            ErrorMessage = ErrorMessages.Length)]
+            ErrorMessage = ErrorMessages.Range)]
         public int Duration { get; set; }
     }
 }

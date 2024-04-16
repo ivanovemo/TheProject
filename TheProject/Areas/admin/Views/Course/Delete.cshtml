@@ -8,32 +8,38 @@
 <h2 class="text-center">@ViewData["Title"]</h2>
 <hr />
 
-<div class="container mt-4">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card border-danger">
+            <div class="card border-danger shadow">
                 <div class="card-header bg-danger text-white">
-                    Warning: You are about to delete this course
+                    <i class="fas fa-exclamation-triangle"></i> Warning: You are about to delete this course
                 </div>
-                <div class="card-body">
-                    <img src="@Model.ImageUrl" alt="Course Image" class="img-fluid rounded mb-3" style="max-height: 200px;">
+                <div class="card-body text-center">
+                    <img src="@Model.ImageUrl" alt="Course Image" class="img-fluid rounded mb-4" style="max-height: 200px;">
                     <h5 class="card-title">@Model.Title</h5>
                     <p class="card-text">
                         <strong>Instructor:</strong>
                         <a asp-area="" asp-controller="Instructor" asp-action="Info" asp-route-instructorId="@Model.Instructor.Id" class="text-decoration-none instructor-link" title="Click to view more about @Model.Instructor.FirstName @Model.Instructor.LastName">
                             @Model.Instructor.FirstName @Model.Instructor.LastName
                         </a>
-                    </p>                    <p class="card-text"><strong>Start Date:</strong> @Model.StartDate</p>
+                    </p>
+                    <p class="card-text"><strong>Start Date:</strong> @Model.StartDate</p>
                     <p class="card-text"><strong>End Date:</strong> @Model.EndDate</p>
                     <p class="card-text"><strong>Description:</strong> @Model.Description</p>
                     <p class="card-text"><strong>Category:</strong> @Model.Category</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer text-center">
                     <form asp-area="admin" asp-controller="Course" asp-action="Delete" asp-route-courseId="@Model.Id" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@Model.Id" />
-                        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Confirm Delete
+                        </button>
                     </form>
-                    <a asp-area="" asp-action="All" asp-controller="Course" class="btn btn-outline-secondary">Cancel</a>
+                    <a asp-area="" asp-action="All" asp-controller="Course" class="btn btn-outline-secondary">
+                        <i class="fas fa-times-circle"></i> Cancel
+                    </a>
                 </div>
             </div>
         </div>

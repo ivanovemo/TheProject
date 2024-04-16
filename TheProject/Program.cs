@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TheProject.Areas.admin.Contracts;
+using TheProject.Areas.admin.Services;
 using TheProject.Core.Contracts;
 using TheProject.Core.Services;
 using TheProject.Infrastructure.Data;
+using TheProject.Infrastructure.Data.Configuration;
 using TheProject.Infrastructure.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +40,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<ILectureService, LectureService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 var app = builder.Build();
 
@@ -47,6 +51,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
     app.UseHsts();
 }
 
@@ -77,61 +82,9 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
+await RolesConfiguration.SeedRoles(app.Services);
+await UserRolesConfiguration.SeedUserRoles(app.Services);
+
 app.MapRazorPages();
 
-SeedRoles(app.Services).Wait();
-SeedUserRoles(app.Services).Wait();
-
 app.Run();
-
-static async Task SeedRoles(IServiceProvider serviceProvider)
-{
-    using (var scope = serviceProvider.CreateScope())
-    {
-        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-        string[] roleNames = { "admin", "user" };
-        foreach (var roleName in roleNames)
-        {
-            var roleExist = await roleManager.RoleExistsAsync(roleName);
-            if (!roleExist)
-            {
-                await roleManager.CreateAsync(new IdentityRole(roleName));
-            }
-        }
-    }
-}
-
-
-static async Task SeedUserRoles(IServiceProvider serviceProvider)
-{
-    using (var scope = serviceProvider.CreateScope())
-    {
-        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-        var adminRoleExists = await roleManager.RoleExistsAsync("admin");
-        if (!adminRoleExists)
-        {
-            await roleManager.CreateAsync(new IdentityRole("admin"));
-        }
-
-        var userRoleExists = await roleManager.RoleExistsAsync("user");
-        if (!userRoleExists)
-        {
-            await roleManager.CreateAsync(new IdentityRole("user"));
-        }
-
-        var adminUser = await userManager.FindByEmailAsync("admin1@gmail.com");
-        if (adminUser != null && !(await userManager.IsInRoleAsync(adminUser, "admin")))
-        {
-            await userManager.AddToRoleAsync(adminUser, "admin");
-        }
-
-        var userUser = await userManager.FindByEmailAsync("user1@gmail.com");
-        if (userUser != null && !(await userManager.IsInRoleAsync(userUser, "user")))
-        {
-            await userManager.AddToRoleAsync(userUser, "user");
-        }
-    }
-}

@@ -191,6 +191,41 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = 3,
                             Name = "Creative Arts and Design"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Health and Wellness"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Environmental Science and Sustainability"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Engineering and Robotics"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Language and Communication"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Data Science and Analytics"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "History and Culture"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Personal Development and Leadership"
                         });
                 });
 
@@ -288,6 +323,61 @@ namespace TheProject.Infrastructure.Migrations
                             Interested = 75,
                             StartDate = new DateTime(2024, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Project Management Professional Certification Prep"
+                        },
+                        new
+                        {
+                            Id = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            CategoryId = 5,
+                            Description = "An exploration of sustainable living practices including renewable energy, green building, and sustainable agriculture.",
+                            EndDate = new DateTime(2024, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "https://media.restless.co.uk/uploads/2021/04/13_tips_for_sustainable_living.jpg",
+                            Interested = 65,
+                            StartDate = new DateTime(2024, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Sustainable Living"
+                        },
+                        new
+                        {
+                            Id = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            CategoryId = 6,
+                            Description = "Get hands-on experience building and programming your first robot using Arduino and Raspberry Pi.",
+                            EndDate = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "https://miro.medium.com/v2/resize:fit:960/1*o2QkJWlZWqtDa-g3luWT1Q.jpeg",
+                            Interested = 80,
+                            StartDate = new DateTime(2024, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Introduction to Robotics"
+                        },
+                        new
+                        {
+                            Id = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            CategoryId = 7,
+                            Description = "Learn Spanish from scratch! Master the basics of conversation, grammar, and vocabulary with this interactive course.",
+                            EndDate = new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "https://effortlessconversations.com/wp-content/uploads/2023/10/is-spanish-hard-learn-spanish-text-on-laptop-1024x683.jpg",
+                            Interested = 95,
+                            StartDate = new DateTime(2024, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Spanish for Beginners"
+                        },
+                        new
+                        {
+                            Id = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            CategoryId = 4,
+                            Description = "Learn how to offer initial support to adults who are developing a mental health problem or experiencing a mental health crisis.",
+                            EndDate = new DateTime(2024, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "https://addictionstraininginstitute.com/wp-content/uploads/2023/05/image-26.png",
+                            Interested = 70,
+                            StartDate = new DateTime(2024, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Mental Health First Aid"
+                        },
+                        new
+                        {
+                            Id = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            CategoryId = 3,
+                            Description = "Unlock your creative potential and discover how to craft compelling stories with character, plot, and heart.",
+                            EndDate = new DateTime(2024, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "https://www.artshub.com.au/wp-content/uploads/sites/2/2022/05/shutterstock_516275947-e1652150413730.jpg",
+                            Interested = 85,
+                            StartDate = new DateTime(2024, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Creative Writing"
                         });
                 });
 
@@ -329,7 +419,7 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8adb90b0-391a-45bb-94ac-ef48fca55c3d"),
+                            Id = new Guid("0e819ce1-8782-451b-b515-d92ea4b0a5ef"),
                             Bio = "Expert in full stack development with over 10 years of experience.",
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
                             FirstName = "Angelina",
@@ -338,7 +428,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2c24853c-6ec1-441d-9973-bc2fc55bf34a"),
+                            Id = new Guid("3af9b82a-8cfc-4552-9d21-401bb0969b53"),
                             Bio = "Data scientist specializing in machine learning and data visualization with over 8 years of experience.",
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
                             FirstName = "Scarlett",
@@ -347,7 +437,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("61a286d3-7d6e-4b40-b88b-abedb579bc3a"),
+                            Id = new Guid("18baf6d3-e14d-41d7-9077-8fff73948198"),
                             Bio = "Digital marketing guru with a focus on SEO and social media strategy.",
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
                             FirstName = "Jennifer",
@@ -356,7 +446,7 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0093f220-b118-4197-9d09-affce6d2f451"),
+                            Id = new Guid("921a630d-dd29-44f6-9e4d-2bf572b5455f"),
                             Bio = "Renowned graphic designer with a passion for typography and brand identity.",
                             CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
                             FirstName = "Margot",
@@ -365,12 +455,57 @@ namespace TheProject.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f49abf98-a2c3-42ea-8383-09db9af96d6e"),
+                            Id = new Guid("4804a2bf-8264-4b50-9769-c9c8347aeea2"),
                             Bio = "Project management professional with extensive experience preparing candidates for the PMP® certification.",
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
                             FirstName = "Emma",
                             LastName = "Watson",
                             Photo = "https://image.tmdb.org/t/p/original/A14lLCZYDhfYdBa0fFRpwMDiwRN.jpg"
+                        },
+                        new
+                        {
+                            Id = new Guid("5f28399e-6b0b-44bf-9a93-3be4bbd805c3"),
+                            Bio = "Natalie Portman, a renowned actress and passionate environmentalist, brings her wealth of knowledge and experience to the realm of sustainable living. With a strong belief in the power of renewable energy solutions, she has dedicated herself to advocating for a greener planet. Her courses are rich with practical insights on how to incorporate sustainable practices into daily life, drawing from her own journey towards living sustainably. Natalie's dedication to environmental activism is matched by her ability to inspire and engage her students. Through her comprehensive approach, she explores the various dimensions of sustainability, from green building techniques to sustainable agriculture. Her engaging teaching style combines theory with real-world applications, making her classes both informative and transformative. Natalie encourages her students to think critically about their environmental impact and empowers them to make meaningful changes. Her vision is to create a community of learners who are equipped to lead the way in sustainable living. With Natalie as your guide, you'll embark on a journey to understand the importance of sustainability and how you can be a part of the solution. Join her to discover the practices that will not only benefit the environment but also enhance your quality of life.",
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            FirstName = "Natalie",
+                            LastName = "Portman",
+                            Photo = "https://facts.net/wp-content/uploads/2023/07/46-facts-about-natalie-portman-1690804650.jpg"
+                        },
+                        new
+                        {
+                            Id = new Guid("ffac92b3-0147-4bb3-8646-7a98e8164f7c"),
+                            Bio = "Anne Hathaway, with her deep passion for technology and education, spearheads our Introduction to Robotics course. Having spent years in the field of robotics engineering, Anne brings a wealth of practical knowledge and hands-on experience. Her course is designed to demystify the complex world of robotics and make it accessible to everyone, from beginners to more experienced enthusiasts. Anne's approach to teaching is deeply rooted in the belief that everyone has the potential to innovate. Through her engaging lectures and interactive workshops, students are encouraged to build and program their own robots, learning not just the technical skills but also the creativity and problem-solving abilities that are essential in robotics. Anne's dedication to her students goes beyond the classroom; she is committed to creating a supportive learning environment where questions are welcomed and exploration is encouraged. Her course covers a range of topics, from the basics of Arduino and Raspberry Pi to more advanced concepts in robotics engineering. Anne's mission is to inspire her students to pursue their interests in technology and to equip them with the skills needed to thrive in this exciting field. Join Anne Hathaway in this adventure into the world of robotics and discover the endless possibilities that await.",
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            FirstName = "Anne",
+                            LastName = "Hathaway",
+                            Photo = "https://www.usmagazine.com/wp-content/uploads/2023/11/Anne-Hathaway-revealed-that-she-was-told-that-her-career-would-be-over-by-the-time-she-turned-35-2.jpg?w=1000&quality=86&strip=all"
+                        },
+                        new
+                        {
+                            Id = new Guid("fc441bf4-4d43-455c-bee4-848cc7ff6325"),
+                            Bio = "Penelope Cruz, an acclaimed actress with a rich background in language arts, has transitioned her passion into teaching Spanish to beginners. Her journey with languages began early in her career, allowing her to perform in a variety of roles across different cultures. Penelope's course, 'Spanish for Beginners: Master Basic Conversations', is a reflection of her love for the Spanish language and her desire to share it with others. Through her engaging teaching methods, Penelope emphasizes practical conversation skills, ensuring students gain confidence in their abilities to communicate. Her approach to teaching is infused with cultural insights, making learning a language not just about words but about understanding and appreciating a rich and vibrant culture. Penelope's classes are interactive and filled with real-life scenarios that prepare students for everyday conversations. With over a decade of experience in the film industry and numerous roles that required language mastery, Penelope brings authenticity and depth to her lessons. Her goal is to inspire a love for the Spanish language in her students, just as she has experienced in her travels and career. Join Penelope Cruz on this linguistic journey and unlock the door to new opportunities and connections through the beauty of the Spanish language.",
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            FirstName = "Penélope",
+                            LastName = "Cruz",
+                            Photo = "https://i.abcnewsfe.com/a/2e0c575c-cc96-480d-86a9-77f29924ac05/penelope-cruz-rt-gmh-240118_1705590269793_hpMain.jpg"
+                        },
+                        new
+                        {
+                            Id = new Guid("106ffe87-76e8-42e4-ab8c-346dc1b09521"),
+                            Bio = "Meryl Streep, an icon of the silver screen, brings her unparalleled experience and insight to the world of mental health first aid. With a career that spans decades and roles that have touched on a myriad of human experiences, Meryl is uniquely positioned to lead a course on supporting others and yourself in times of mental health crises. Her course, 'Mental Health First Aid: Supporting Others and Yourself', draws upon her deep understanding of the human psyche, explored through her diverse roles. Meryl's approach to teaching is compassionate and informed, aiming to destigmatize mental health issues and provide practical support techniques. She advocates for empathy, understanding, and direct action in assisting those facing mental health challenges. The course covers recognizing signs of mental health problems, offering initial help, and guiding someone towards appropriate care. Meryl's passion for mental health awareness is palpable in her lectures, making her an inspiring figure for those looking to make a difference. With her guidance, students learn not only how to help others but also the importance of self-care and resilience. Enroll in Meryl Streep's course to embark on a meaningful journey towards becoming a supportive presence in the lives of those around you.",
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            FirstName = "Meryl",
+                            LastName = "Streep",
+                            Photo = "https://www.maconferenceforwomen.org/wp-content/uploads/sites/4/2017/04/meryl-streep.jpg"
+                        },
+                        new
+                        {
+                            Id = new Guid("e8fc6de8-822a-496c-99fd-b4a065822a1a"),
+                            Bio = "Lupita Nyong'o, an Oscar-winning actress known for her profound and emotionally resonant performances, turns her talents to the art of storytelling through creative writing. With a history of roles that span diverse narratives and cultures, Lupita brings a unique perspective to her course, 'Creative Writing: Unleash Your Imagination'. She focuses on helping students unlock their creative potential, encouraging them to explore their own stories with depth, empathy, and originality. Lupita's teaching method is deeply interactive, involving students in exercises that challenge them to think critically and creatively. Her lessons delve into character development, plot structuring, and the nuances of language, all while fostering an environment of support and inspiration. Lupita believes that everyone has a story to tell and that the act of writing can be a powerful tool for self-expression and reflection. Her passion for storytelling is infectious, making her classes a vibrant space for aspiring writers. Whether you're looking to write your first short story or embark on a novel, Lupita Nyong'o's course offers the guidance, inspiration, and techniques to help you navigate the journey of creative writing.",
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            FirstName = "Lupita",
+                            LastName = "Nyong'o",
+                            Photo = "https://lh3.googleusercontent.com/vDTbynIYVfDFAT5NXckaRIKpMbO2N7bn_Gb57_1k26vPDbmjwjWgnx22AwRQpl6pCtHxOo1xiNOlUdBjascfRQEk9Oadz2aJSeZvFp2e"
                         });
                 });
 
@@ -408,93 +543,273 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("79ccf8cf-0cf5-4c90-861b-cdf1e83c7025"),
+                            Id = new Guid("4079d9c7-4389-4de9-b8d6-e6c314370ff8"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
-                            Description = "Understanding the basics of web development with HTML and CSS.",
+                            Description = "Getting started with Node.js, Express, and MongoDB. Installation and environment setup for full stack development.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 1, 12, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Setting Up Your Development Environment"
+                        },
+                        new
+                        {
+                            Id = new Guid("410fbb58-4109-4025-9ffa-0413c540992e"),
+                            CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
+                            Description = "Introduction to React and its core principles. Building a simple application to understand components, state, and props.",
+                            Duration = 180,
+                            StartDate = new DateTime(2024, 1, 19, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Building Your First React Application"
+                        },
+                        new
+                        {
+                            Id = new Guid("6cacc034-720f-4e5b-b48e-a63d1fb9f7b9"),
+                            CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
+                            Description = "Creating a seamless connection between React and Node.js. Understanding REST APIs and integrating MongoDB for data storage.",
                             Duration = 150,
-                            StartDate = new DateTime(2024, 1, 15, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Introduction to HTML and CSS"
+                            StartDate = new DateTime(2024, 1, 26, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Connecting Frontend with Backend"
                         },
                         new
                         {
-                            Id = new Guid("7b12c626-bcd9-4a22-b5d7-8d6d3828c4c6"),
-                            CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
-                            Description = "Interactive web pages with JavaScript.",
-                            Duration = 180,
-                            StartDate = new DateTime(2024, 1, 22, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "JavaScript and the Web"
-                        },
-                        new
-                        {
-                            Id = new Guid("f0c61cfd-3ed8-46b3-980c-1cbc12acd694"),
+                            Id = new Guid("4668a757-ea7f-49b8-bf1f-d8b7f9b91555"),
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
-                            Description = "Introduction to Python and its libraries for data science.",
+                            Description = "An introduction to Python for data manipulation and analysis. Covering NumPy, pandas, and matplotlib libraries.",
                             Duration = 90,
-                            StartDate = new DateTime(2024, 2, 20, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Python for Data Science"
+                            StartDate = new DateTime(2024, 2, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Python Programming for Data Science"
                         },
                         new
                         {
-                            Id = new Guid("16cd6450-8510-4660-ad51-1ba90303bd8b"),
+                            Id = new Guid("92c6812c-9d72-4239-8c5b-b19b9d38faf3"),
                             CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
-                            Description = "Analyzing data sets to summarize their main characteristics.",
+                            Description = "Exploring linear regression, logistic regression, and clustering techniques using the Scikit-learn library.",
                             Duration = 120,
-                            StartDate = new DateTime(2024, 2, 27, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Exploratory Data Analysis"
+                            StartDate = new DateTime(2024, 2, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Machine Learning Models with Scikit-learn"
                         },
                         new
                         {
-                            Id = new Guid("a40432cf-b270-4349-aaa4-f553a98bb5ef"),
-                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
-                            Description = "Learn the basics of Search Engine Optimization to increase your website visibility.",
-                            Duration = 75,
-                            StartDate = new DateTime(2024, 3, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "SEO Fundamentals"
-                        },
-                        new
-                        {
-                            Id = new Guid("a7e0eea7-e847-43cd-8922-6c5241b174df"),
-                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
-                            Description = "Effective strategies for engaging with your audience on social media platforms.",
-                            Duration = 60,
-                            StartDate = new DateTime(2024, 4, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Social Media Marketing Strategies"
-                        },
-                        new
-                        {
-                            Id = new Guid("ced31774-6e45-4e5a-9c4f-36bb2161d5c1"),
-                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
-                            Description = "A deep dive into the core principles of graphic design, focusing on composition and layout.",
+                            Id = new Guid("dc556874-66d9-40b0-9c4c-ba620bdf02da"),
+                            CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
+                            Description = "An overview of neural networks and deep learning. Implementing a basic neural network using TensorFlow.",
                             Duration = 180,
-                            StartDate = new DateTime(2024, 5, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Design Principles: Composition and Layout"
+                            StartDate = new DateTime(2024, 3, 4, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Deep Learning Introduction with TensorFlow"
                         },
                         new
                         {
-                            Id = new Guid("a834bc50-3608-441b-85d3-3e1fa91f37d8"),
-                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
-                            Description = "Exploring the role of typography in graphic design and how to use it effectively.",
-                            Duration = 300,
-                            StartDate = new DateTime(2024, 5, 8, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Typography in Design"
+                            Id = new Guid("d179048a-ed5e-4338-b20b-cfa06a13883b"),
+                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
+                            Description = "Diving deep into the world of search engine optimization, understanding keywords, and optimizing your website for Google.",
+                            Duration = 100,
+                            StartDate = new DateTime(2024, 3, 23, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Understanding SEO"
                         },
                         new
                         {
-                            Id = new Guid("698eb3da-d997-4253-b341-a923b173bc62"),
-                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
-                            Description = "Covering the fundamental concepts and terminologies of project management.",
+                            Id = new Guid("fc6dd7c4-346b-4c4b-a11a-2459441857f2"),
+                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
+                            Description = "Creating and managing pay-per-click campaigns on Google Ads and social media platforms.",
                             Duration = 120,
-                            StartDate = new DateTime(2024, 6, 5, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Project Management Basics"
+                            StartDate = new DateTime(2024, 3, 30, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Effective PPC Campaigns"
                         },
                         new
                         {
-                            Id = new Guid("1683ea44-d25e-46c9-a1fb-6bb19ab77acb"),
+                            Id = new Guid("3499d1ed-7bd1-4ac8-b2ea-4a43db292854"),
+                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
+                            Description = "Leveraging social media platforms to enhance brand visibility and engagement. Strategies for content creation and distribution.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Social Media Marketing and Branding"
+                        },
+                        new
+                        {
+                            Id = new Guid("e714f977-a79f-4412-83ed-ffccf41c8128"),
+                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
+                            Description = "An exploration of color psychology, color palettes, and the importance of typography in design.",
+                            Duration = 110,
+                            StartDate = new DateTime(2024, 4, 28, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Basics of Design: Color Theory and Typography"
+                        },
+                        new
+                        {
+                            Id = new Guid("a9f65ba4-f9f0-40f1-9c47-153dcdc74f17"),
+                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
+                            Description = "Mastering the basics of Adobe Photoshop for photo editing and graphic creation.",
+                            Duration = 180,
+                            StartDate = new DateTime(2024, 5, 5, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Adobe Photoshop Fundamentals"
+                        },
+                        new
+                        {
+                            Id = new Guid("578fc1fb-63f3-47be-8baa-26053b693539"),
+                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
+                            Description = "Designing impactful visuals for websites, social media, and printed materials.",
+                            Duration = 140,
+                            StartDate = new DateTime(2024, 5, 12, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Creating Effective Visuals for Web and Print"
+                        },
+                        new
+                        {
+                            Id = new Guid("031b69f9-e453-48de-b1e0-7ba890f2fc24"),
                             CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
-                            Description = "Strategies and tips for tackling the PMP certification exam.",
-                            Duration = 220,
-                            StartDate = new DateTime(2024, 6, 12, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Preparing for the PMP Exam"
+                            Description = "Understanding the PMBOK framework and the process groups and knowledge areas of project management.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 6, 2, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Introduction to Project Management Framework"
+                        },
+                        new
+                        {
+                            Id = new Guid("752e465e-dfdb-45bf-a8cd-46562c484e9f"),
+                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
+                            Description = "Identifying, analyzing, and responding to project risks to minimize their impact.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 6, 9, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Risk Management and Mitigation"
+                        },
+                        new
+                        {
+                            Id = new Guid("38268ae9-c790-4aec-a9e3-c815e9ac5568"),
+                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
+                            Description = "Techniques for creating realistic project schedules and ensuring timely project delivery.",
+                            Duration = 150,
+                            StartDate = new DateTime(2024, 6, 16, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Project Scheduling and Time Management"
+                        },
+                        new
+                        {
+                            Id = new Guid("285ebb36-101f-4d55-8890-aeef0f791bc6"),
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            Description = "An introduction to the different types of renewable energy sources and their impact on sustainable living.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 6, 20, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Renewable Energy Basics"
+                        },
+                        new
+                        {
+                            Id = new Guid("1c069d5a-114a-45bd-b433-a1c8dda64886"),
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            Description = "Exploring the principles of green building and sustainable design in modern architecture.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 6, 27, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Green Building Design"
+                        },
+                        new
+                        {
+                            Id = new Guid("956944e3-403f-4e33-a176-58e6b2f2f75f"),
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            Description = "Understanding sustainable farming practices and how they contribute to food security and environmental health.",
+                            Duration = 105,
+                            StartDate = new DateTime(2024, 7, 4, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Sustainable Agriculture Techniques"
+                        },
+                        new
+                        {
+                            Id = new Guid("66c29c3f-3b28-4a66-9d28-aeb8c177f9d7"),
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            Description = "Step-by-step guidance on creating a simple robot, focusing on the basics of mechanical design and programming.",
+                            Duration = 180,
+                            StartDate = new DateTime(2024, 7, 10, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Building Your First Robot"
+                        },
+                        new
+                        {
+                            Id = new Guid("bc6217af-6a50-4f8e-851c-c86e88543b47"),
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            Description = "Introduction to programming with Arduino, including sensor integration and basic robotics control.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 7, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Arduino Programming Basics"
+                        },
+                        new
+                        {
+                            Id = new Guid("aa0aeda4-3b50-4750-a93a-7a4c07ad9f8f"),
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            Description = "Exploring more complex robotics projects using Raspberry Pi, focusing on IoT applications.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 7, 24, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Advanced Robotics with Raspberry Pi"
+                        },
+                        new
+                        {
+                            Id = new Guid("2d334096-dc70-4d1d-85f2-026b5f36a2ee"),
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            Description = "Learning common phrases and expressions to start speaking Spanish in daily situations.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 7, 30, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Basic Spanish Conversation"
+                        },
+                        new
+                        {
+                            Id = new Guid("a1829db4-96c0-4867-8940-9b7299d4b0fb"),
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            Description = "Covering the foundational grammar needed to build sentences and communicate effectively in Spanish.",
+                            Duration = 75,
+                            StartDate = new DateTime(2024, 8, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Grammar Essentials"
+                        },
+                        new
+                        {
+                            Id = new Guid("1c018736-49bf-4230-8c24-75639b08e387"),
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            Description = "Understanding the cultural nuances and expressions that are unique to the Spanish language.",
+                            Duration = 60,
+                            StartDate = new DateTime(2024, 8, 13, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Spanish Culture and Expressions"
+                        },
+                        new
+                        {
+                            Id = new Guid("8ba00468-d8d5-4cb2-94ab-fee13a9218f6"),
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            Description = "An overview of mental health, including common conditions and the importance of mental wellbeing.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 8, 20, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Understanding Mental Health"
+                        },
+                        new
+                        {
+                            Id = new Guid("2556ff6c-90e6-4df2-82d4-34ff6132e491"),
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            Description = "Techniques for providing immediate, short-term help to individuals experiencing a mental health crisis.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 8, 27, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Crisis Intervention Strategies"
+                        },
+                        new
+                        {
+                            Id = new Guid("10012a60-0cea-4f83-be0e-521725e7db2f"),
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            Description = "Strategies for raising awareness and reducing stigma associated with mental health issues.",
+                            Duration = 75,
+                            StartDate = new DateTime(2024, 9, 3, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Promoting Mental Health Awareness"
+                        },
+                        new
+                        {
+                            Id = new Guid("4919bee6-95c6-4f67-966e-bdf6e71757d8"),
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            Description = "Exploring the key elements of creative writing, including narrative structure, character development, and voice.",
+                            Duration = 120,
+                            StartDate = new DateTime(2024, 9, 10, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Fundamentals of Creative Writing"
+                        },
+                        new
+                        {
+                            Id = new Guid("8395f4b8-5682-45e7-8362-5ed09ca94867"),
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            Description = "Techniques for creating complex, believable characters that engage readers.",
+                            Duration = 90,
+                            StartDate = new DateTime(2024, 9, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Crafting Compelling Characters"
+                        },
+                        new
+                        {
+                            Id = new Guid("24a0282c-37d7-462c-81f0-2010a602ad8a"),
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            Description = "Mastering the art of storytelling, focusing on plot development and the emotional journey of the characters.",
+                            Duration = 105,
+                            StartDate = new DateTime(2024, 9, 24, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "The Art of Storytelling"
                         });
                 });
 
@@ -530,51 +845,163 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ac85b605-c0e4-42e2-a3f6-6a655fb859c4"),
+                            Id = new Guid("7b4910ec-651e-427b-8a7d-7400f62aba50"),
                             CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
-                            Description = "A comprehensive course that offers deep insights into full stack development.",
-                            Rating = 8,
-                            UserId = "6b79f761-5a4e-4457-a53b-cfc7c36ab084"
-                        },
-                        new
-                        {
-                            Id = new Guid("968d6196-77ae-4880-961e-1b9ae5c843b1"),
-                            CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
-                            Description = "Excellent course on data science. Highly recommend for beginners and intermediates.",
+                            Description = "An incredibly comprehensive course that offered deep insights into full stack development with practical projects. Highly recommend for beginners and intermediate developers.",
                             Rating = 9,
                             UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
                         },
                         new
                         {
-                            Id = new Guid("fcadd006-f5c1-4278-90c4-8fd2340939e4"),
+                            Id = new Guid("04cbee4d-8300-409c-b074-4afdd41a1293"),
+                            CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
+                            Description = "This course was detailed with plenty of hands-on exercises. However, some prerequisites in JavaScript would have been helpful to mention for absolute beginners.",
+                            Rating = 8,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("ed5cb7ea-e482-470f-9631-cf7fd8f34b95"),
+                            CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
+                            Description = "Outstanding content and delivery on complex topics. The practical sessions were particularly beneficial. A must-take course for aspiring data scientists.",
+                            Rating = 10,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("5d1f5dc4-67e1-4db4-ae73-2a8f84b4da84"),
+                            CourseId = new Guid("6663d89a-3f07-4bea-b4f4-dc8b47efe599"),
+                            Description = "Provides a robust foundation in data science. The course pace is fast but manageable. Python knowledge is a must to keep up.",
+                            Rating = 9,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("2d66cc2a-e1f2-413e-97bf-0358b37f4a1f"),
                             CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
-                            Description = "Great insights into digital marketing strategies. Useful for all levels.",
+                            Description = "Covers all the basics of digital marketing. Some topics could use more depth, but overall a good starter course.",
                             Rating = 7,
                             UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
                         },
                         new
                         {
-                            Id = new Guid("7d55d2d0-5696-49d8-aff0-e0fc98d2bcc6"),
-                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
-                            Description = "Loved the practical approach to graphic design principles. The examples were very helpful.",
-                            Rating = 6,
-                            UserId = "addd0c13-6a3f-4706-afc8-219f5e89badd"
-                        },
-                        new
-                        {
-                            Id = new Guid("7bf7f52a-bd90-492d-9de1-8eb8a5b26b19"),
-                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
-                            Description = "The PMP prep course was detailed and well-structured. It helped me pass the exam on the first try.",
+                            Id = new Guid("916e1c47-2e84-4f9d-a44e-871bf2bafc51"),
+                            CourseId = new Guid("412588b2-b00f-49dc-b261-04b65edfd9f3"),
+                            Description = "Great insights into digital marketing trends and tools. I particularly enjoyed the case studies and practical examples.",
                             Rating = 8,
-                            UserId = "addd0c13-6a3f-4706-afc8-219f5e89badd"
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
                         },
                         new
                         {
-                            Id = new Guid("f508c604-a46b-43fc-a1e2-ba1063688c2f"),
-                            CourseId = new Guid("9f9f3e8b-8fdd-4a38-b052-a5109123e2ab"),
-                            Description = "This course exceeded my expectations! The content was clear, and the projects were both challenging and rewarding.",
+                            Id = new Guid("91cb0298-3c0c-445b-8b80-60c49bace984"),
+                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
+                            Description = "A fascinating journey through the basics of graphic design. The course is well-structured, engaging, and creatively stimulating.",
+                            Rating = 9,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("ffecdecd-fdd4-4037-94c4-958731968f12"),
+                            CourseId = new Guid("557a4fcd-1f84-4487-a7bd-8240327c976b"),
+                            Description = "Solid introduction to graphic design principles. Would appreciate more advanced modules for further learning.",
+                            Rating = 8,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("b4e0b029-7316-49df-96ef-0811cfe0e6e1"),
+                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
+                            Description = "The course does an excellent job preparing for the PMP exam with detailed materials and practice questions. Some lessons felt a bit dry.",
+                            Rating = 8,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("f27ca227-ad75-45c5-8d53-2f3cc2046a62"),
+                            CourseId = new Guid("f5b840fe-cd8b-44e1-8c5e-5cdbec1d4a0f"),
+                            Description = "Provides a comprehensive overview of project management principles. Would benefit from more interactive content to keep the engagement high.",
+                            Rating = 7,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("174bed9c-2ea4-4163-a624-278c3895a259"),
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            Description = "Inspirational course that offers practical advice on living more sustainably. It's comprehensive and thought-provoking.",
                             Rating = 10,
-                            UserId = "addd0c13-6a3f-4706-afc8-219f5e89badd"
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("d21ee389-ab21-46e3-afdc-e01f104edb22"),
+                            CourseId = new Guid("ae35af86-a051-46f0-9aef-980d4e7585ac"),
+                            Description = "A great introduction to sustainability. It covers a wide range of topics and provides actionable steps to make a difference.",
+                            Rating = 9,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("97a404ec-90a7-4a9c-a98e-ffab70a7a97d"),
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            Description = "Engaging and hands-on introduction to robotics. While some technical aspects can be challenging, the course is extremely rewarding.",
+                            Rating = 8,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("d766519a-22fb-49c2-b255-21f7bb84459e"),
+                            CourseId = new Guid("c65ee8c7-189a-4730-9171-d89324a534de"),
+                            Description = "A good foundational course in robotics that could be improved by updating some of the course materials and resources.",
+                            Rating = 7,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("bed8824d-95f9-47b1-ae00-80d875b5881a"),
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            Description = "Excellent course for beginners. The interactive exercises and practical conversation practice were very helpful.",
+                            Rating = 9,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("9babff8f-7d53-42a6-8e7b-4fc1735863d6"),
+                            CourseId = new Guid("f7b36bbc-397a-411d-b15c-b51355eb4465"),
+                            Description = "A solid introduction to Spanish that makes learning a new language less daunting. More advanced follow-up courses would be appreciated.",
+                            Rating = 8,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("6a739b0b-5234-46dc-b9c7-ae1a9f26a461"),
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            Description = "Extremely valuable course offering crucial insights into mental health support. Highly recommended for everyone.",
+                            Rating = 10,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("9d0498f4-bdee-451b-b784-fa4119078261"),
+                            CourseId = new Guid("78a56892-9dba-42cf-9328-e2cf026a5b97"),
+                            Description = "Important and timely content that's presented in an accessible way. This course is essential for anyone looking to understand more about mental health.",
+                            Rating = 9,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
+                        },
+                        new
+                        {
+                            Id = new Guid("8cdf0160-9408-4644-b41d-9fd2b7374e74"),
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            Description = "This course was a journey of discovery into the art of storytelling. The prompts and feedback helped me grow my writing in ways I hadn't imagined.",
+                            Rating = 9,
+                            UserId = "6c3438cd-8332-4e95-9a5e-adb64ec972d6"
+                        },
+                        new
+                        {
+                            Id = new Guid("7a5e375e-6023-4e21-a60c-dedb5ba6cb61"),
+                            CourseId = new Guid("6d38c7e6-84eb-411c-a528-53caecbdf5a5"),
+                            Description = "A great primer for aspiring writers, packed with engaging exercises and insightful tips. More content on novel writing would be beneficial.",
+                            Rating = 8,
+                            UserId = "2d64777e-f833-4eca-803b-8eb1b0670a5c"
                         });
                 });
 
@@ -647,33 +1074,17 @@ namespace TheProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0afe2b81-40c4-4ae7-9ebd-0ccaa1b0b64f",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8b5a2c8-17c2-4bae-805b-87864040c36f",
-                            Email = "guest1@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "GUEST1@GMAIL.COM",
-                            NormalizedUserName = "guest1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHSd9vpql6Z0nIf8g0LxJgclbVvqYuX0eR5mSMjLIHRV3u2vqfPgTitzCpe9zeFnMg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "ffcb7d99-09f2-4709-b761-a71fcc536e90",
-                            TwoFactorEnabled = false,
-                            UserName = "guest1"
-                        },
-                        new
-                        {
                             Id = "6b79f761-5a4e-4457-a53b-cfc7c36ab084",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c5bafd92-a3e2-4302-b993-2b12feb97ff7",
+                            ConcurrencyStamp = "db3dd6f8-8995-41ab-9cec-6c97c8c27712",
                             Email = "user1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@GMAIL.COM",
                             NormalizedUserName = "user1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB0mUdWpcwOKfT8YS1SwmVTSrzv0lWhgsKoWCoe/pxVrkfUo7V1NzCFrVmQ5NkZg7Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEclX1EcBBQSyZP3dRIMMaShTXdJtdh/6NDRLkTkVOabchk2KrFHRQRf7rXJOtkxig==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bea52b4d-0693-4c98-a1af-e777fab8b73f",
+                            SecurityStamp = "32ba399d-c5b2-43ef-b6c9-f2f3fa67b546",
                             TwoFactorEnabled = false,
                             UserName = "user1"
                         },
@@ -681,15 +1092,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "6c3438cd-8332-4e95-9a5e-adb64ec972d6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e891cffa-2072-4eb0-b7cc-a3e4a9a4f3f5",
+                            ConcurrencyStamp = "634b3f49-5132-4c0a-b20e-62d3fff93f10",
                             Email = "user2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@GMAIL.COM",
                             NormalizedUserName = "user2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC9DkoELzEWYAI2HhERKwcW6cDzFFIHGdmHZeW1ODZXbPMN0yZGoVvhxS2HBhlLJjA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEICstyUSqAaFcnvJLKgQGTU7EelCt5HIdWIBtOuny5x8KP/Rn8c+spIHDsT5bJRN3g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55e99052-1613-4848-be88-4d621dd1ca56",
+                            SecurityStamp = "247fe60e-482d-449e-a05d-c773dcfc0933",
                             TwoFactorEnabled = false,
                             UserName = "user2"
                         },
@@ -697,15 +1108,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "addd0c13-6a3f-4706-afc8-219f5e89badd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "84778c60-f7c2-49f7-9139-c75d8492d2ac",
+                            ConcurrencyStamp = "223777e1-4a69-421d-bc17-6fac384dcdc9",
                             Email = "user3@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER3@GMAIL.COM",
                             NormalizedUserName = "user3",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBkvlTgvWlzirXONrT5cFoTxHSXIr5GFSz54R6695DQlfYcxe3gsnZfiMoWISLo5tQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAkqzYzuFbpGVpPKJnX4c2RfW4/Iv/B6RQ0EjAEQ0/8jr8nxXH7au+nDlCwZytGY5A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "01ef4ba4-8b8e-4f32-ae3e-c7dd7fda57db",
+                            SecurityStamp = "fd295637-da7a-444b-9c5d-d1be921b1fff",
                             TwoFactorEnabled = false,
                             UserName = "user3"
                         },
@@ -713,15 +1124,15 @@ namespace TheProject.Infrastructure.Migrations
                         {
                             Id = "2d64777e-f833-4eca-803b-8eb1b0670a5c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a612851b-a286-4f2a-940b-2e97dfbf60e8",
+                            ConcurrencyStamp = "c5b7ee4a-7fa2-40a2-a81b-200292a64f92",
                             Email = "admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN1@GMAIL.COM",
                             NormalizedUserName = "admin1",
-                            PasswordHash = "AQAAAAEAACcQAAAAENaM3/kr7cL8u1fY+xoXUxXDygur7GqcXCx6sAA0aEg2Ltm1yE+v+z3zFfZdh7aKnQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB8XbzWhVp3UWwMWQ2Yj7EIcwcaepDkA9zhpFj8/ynbUrDaazyF9Y3o1Tto5vd4Cnw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ee0adb99-cec1-4bae-9e7f-14870e643b53",
+                            SecurityStamp = "51b85986-cd35-418e-a5d6-ed5a56ca4580",
                             TwoFactorEnabled = false,
                             UserName = "admin1"
                         });
@@ -739,7 +1150,7 @@ namespace TheProject.Infrastructure.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("UserCourse");
+                    b.ToTable("UserCourses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

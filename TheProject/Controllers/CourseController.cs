@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TheProject.Core.Contracts;
-
 namespace TheProject.Controllers
 {
     [Authorize]
@@ -20,11 +19,15 @@ namespace TheProject.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All(string searchQuery, int pageIndex = 1)
         {
-            var model = await _courseService.GetAllCoursesAsync();
+            const int pageSize = 6;
+            var models = await _courseService.GetAllCoursesAsync(searchQuery, pageIndex, pageSize);
 
-            return View(model);
+            ViewBag.HasNextPage = models.HasNextPage;
+            ViewBag.PageIndex = pageIndex;
+
+            return View(models);
         }
 
         [HttpGet]
@@ -33,7 +36,7 @@ namespace TheProject.Controllers
         {
             if (await _courseService.CourseExistsAsync(courseId) == false)
             {
-                return RedirectToAction(nameof(All));
+                return NotFound();
             }
 
             var course = await _courseService.GetCourseAsync(courseId);
@@ -62,6 +65,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Join(Guid courseId)
         {
             var userId = GetUserId();
@@ -85,6 +89,7 @@ namespace TheProject.Controllers
 
         [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Leave(Guid courseId)
         {
             string userId = GetUserId();

@@ -15,10 +15,23 @@ namespace TheProject.Controllers
             _reviewService = reviewService;
         }
 
-        [Authorize(Roles = "user, admin")]
         [HttpPost]
+        [Authorize(Roles = "user, admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ReviewViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    TempData["ReviewErrorMessages"] = error.ErrorMessage;
+                }
+
+                var courseId = HttpContext.Request.Query["courseId"].ToString();
+
+                return RedirectToAction("Details", "Course", new { area = "", courseId });
+            }
+
             string userId = GetUserId();
 
             if (string.IsNullOrEmpty(userId))

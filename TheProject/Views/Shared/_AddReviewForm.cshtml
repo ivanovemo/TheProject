@@ -1,0 +1,36 @@
+﻿@using TheProject.Core.Models.Review
+@model ReviewViewModel
+
+<section class="review-form mt-5 container">
+    <h4 class="mb-4"><i class="fas fa-star-half-alt"></i> Leave a Review</h4>
+    <form asp-controller="Review" asp-action="Create" asp-route-courseId="@Model.CourseId" method="post" class="needs-validation" novalidate>
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="@Model.CourseId" name="courseId" />
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating <span class="text-danger">*</span></label>
+            <select class="form-select" id="rating" name="Rating" required>
+                <option value="">Choose a rating...</option>
+                @for (int i = 1; i <= 10; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Your Review <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="description" name="Description" rows="4" required placeholder="Share your experience..."></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Review</button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
