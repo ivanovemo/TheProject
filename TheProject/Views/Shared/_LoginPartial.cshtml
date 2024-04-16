@@ -12,6 +12,11 @@
                 <i class="fas fa-user"></i> @UserManager.GetUserName(User)
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="MyCourses">
+                        <i class="fas fa-user-graduate"></i> My Courses
+                    </a>
+                </li>
                 @if (this.User.IsInRole("admin"))
                 {
                     <li>
