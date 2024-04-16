@@ -60,21 +60,23 @@
                                 </h2>
                                 <div id="@($"collapse{lecture.Id}")" class="accordion-collapse collapse" aria-labelledby="@($"heading{lecture.Id}")" data-bs-parent="#lectureAccordion">
                                     <div class="accordion-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p><strong>Starts:</strong> @lecture.StartDate</p>
-                                                <p><strong>Duration:</strong> @lecture.Duration minutes</p>
-                                                <p>@lecture.Description</p>
-                                            </div>
-                                            <div>
-                                                <a href="https://www.youtube.com/watch?v=nrSlqAb4ZLw" target="_blank" class="btn btn-primary rounded-circle" style="margin-bottom: 1px"><i class="fas fa-play" style="padding-left: 1px"></i></a>
-                                                @if (User?.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                                                {
-                                                    <form asp-area="admin" asp-controller="Lecture" asp-action="Delete" asp-route-lectureId="@lecture.Id" method="post">
-                                                        @Html.AntiForgeryToken()
-                                                        <button type="submit" class="btn btn-danger rounded-circle" onclick="return confirm('Are you sure you want to delete this lecture?');"><i class="fas fa-trash"></i></button>
-                                                    </form>
-                                                }
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="lecture-info col-sm-11">
+                                                    <p><strong>Starts:</strong> @lecture.StartDate</p>
+                                                    <p><strong>Duration:</strong> @lecture.Duration minutes</p>
+                                                    <p><strong>Description:</strong> @lecture.Description</p>
+                                                </div>
+                                                <div class="actions col-sm-1 d-flex align-items-center justify-content-center">
+                                                    <a href="https://www.youtube.com/watch?v=nrSlqAb4ZLw" target="_blank" class="btn btn-primary rounded-circle" style="margin-bottom: 1px"><i class="fas fa-play" style="padding-left: 1px"></i></a>
+                                                    @if (User?.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                                                    {
+                                                        <form asp-area="admin" asp-controller="Lecture" asp-action="Delete" asp-route-lectureId="@lecture.Id" method="post">
+                                                            @Html.AntiForgeryToken()
+                                                            <button type="submit" class="btn btn-danger rounded-circle" onclick="return confirm('Are you sure you want to delete this lecture?');"><i class="fas fa-trash"></i></button>
+                                                        </form>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -138,3 +140,11 @@
         </div>
     </div>
 </div>
+
+<style>
+    .accordion-body {
+        overflow: hidden;
+        padding: 15px;
+        overflow-wrap: break-word;
+    }
+</style>
