@@ -335,5 +335,68 @@ namespace TheProject.Tests.CourseServiceTests
 
             Assert.IsEmpty(results);
         }
+
+        [Test]
+        public async Task AddCourseToCollectionAsync_Throws_WhenCourseDoesNotExist()
+        {
+            var nonExistentCourseId = Guid.NewGuid();
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.AddCourseToCollectionAsync(nonExistentCourseId, _user.Id));
+            Assert.That(ex.Message, Is.EqualTo("Invalid course ID"));
+        }
+
+        [Test]
+        public async Task RemoveCourseFromCollectionAsync_Throws_WhenUserDoesNotExist()
+        {
+            var nonExistentUserId = "nonexistent_user_id";
+            var courseId = Guid.NewGuid();
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.RemoveCourseFromCollectionAsync(courseId, nonExistentUserId));
+            Assert.That(ex.Message, Is.EqualTo("Invalid user ID"));
+        }
+
+        [Test]
+        public async Task GetCategoriesAsync_ReturnsEmpty_WhenNoCategoriesExist()
+        {
+            _context.Categories.RemoveRange(_context.Categories);
+            await _context.SaveChangesAsync();
+
+            var results = await _sut.GetCategoriesAsync();
+
+            Assert.IsEmpty(results);
+        }
+
+        [Test]
+        public async Task AddCourseToCollectionAsync_DoesNothing_WhenCourseAlreadyAdded()
+        {
+            await _sut.AddCourseToCollectionAsync(_course.Id, _user.Id);
+            var initialCount = _context.UserCourses.Count();
+
+            await _sut.AddCourseToCollectionAsync(_course.Id, _user.Id);
+            var newCount = _context.UserCourses.Count();
+
+            Assert.AreEqual(initialCount, newCount); 
+        }
+
+        [Test]
+        public async Task RemoveCourseFromCollectionAsync_DecreasesInterested_WhenCourseRemoved()
+        {
+            await _sut.AddCourseToCollectionAsync(_course.Id, _user.Id);
+            int interestedBefore = _course.Interested;
+
+            await _sut.RemoveCourseFromCollectionAsync(_course.Id, _user.Id);
+
+            var courseAfter = await _context.Courses.FindAsync(_course.Id);
+            Assert.AreEqual(interestedBefore - 1, courseAfter.Interested);
+        }
+
+        [Test]
+        public void GetUserCoursesAsync_Throws_WhenUserIdIsInvalid()
+        {
+            var invalidUserId = Guid.NewGuid().ToString();
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.GetUserCoursesAsync(invalidUserId));
+            Assert.That(ex.Message, Is.EqualTo("Invalid user ID"));
+        }
     }
 }
