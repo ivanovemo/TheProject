@@ -194,5 +194,54 @@ namespace TheProject.Tests.LectureServiceTests
             Assert.AreEqual(lecture.Description, result.Description);
         }
 
+        [Test]
+        public void AddLectureAsync_ThrowsWhenCourseDoesNotExist()
+        {
+            var model = new LectureViewModel
+            {
+                Title = "Lecture Without Course",
+                Description = "Test Description",
+                Duration = 45,
+                StartDate = "01/01/2024 12:00",
+                CourseId = Guid.NewGuid()
+            };
+            DateTime startDate = DateTime.Parse(model.StartDate);
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.AddLectureAsync(model, startDate));
+            Assert.That(ex.Message, Is.EqualTo($"No course found with ID {model.CourseId}. Cannot add lecture."));
+        }
+
+        [Test]
+        public void DeleteLectureAsync_ThrowsWhenLectureDoesNotExist()
+        {
+            var nonExistentLectureId = Guid.NewGuid();
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.DeleteLectureAsync(nonExistentLectureId));
+            Assert.That(ex.Message, Is.EqualTo($"A lecture with the ID {nonExistentLectureId} was not found."));
+        }
+
+        [Test]
+        public void GetLectureByIdAsync_ThrowsWhenLectureDoesNotExist()
+        {
+            var nonExistentLectureId = Guid.NewGuid();
+
+            var ex = Assert.ThrowsAsync<ArgumentException>(() => _sut.GetLectureByIdAsync(nonExistentLectureId));
+            Assert.That(ex.Message, Is.EqualTo($"A lecture with the ID {nonExistentLectureId} was not found."));
+        }
+
+        [Test]
+        public async Task GetLecturesByCourseId_ReturnsEmptyWhenNoLecturesExist()
+        {
+            var courseId = Guid.NewGuid();
+                                          
+            var course = new Course { Id = courseId, Title = "Empty Course", Description = "No lectures here", StartDate = DateTime.Today, EndDate = DateTime.Today.AddDays(30), CategoryId = _category.Id, Instructor = _instructor };
+            await _context.Courses.AddAsync(course);
+            await _context.SaveChangesAsync();
+
+            var results = await _sut.GetLecturesByCourseId(courseId);
+
+            Assert.IsEmpty(results);
+        }
+
     }
 }
