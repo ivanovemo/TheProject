@@ -80,7 +80,6 @@ namespace TheProject.Tests.LectureServiceTests
         [Test]
         public async Task AddLectureAsync_AddsLectureCorrectly()
         {
-            // Ensure a course exists
             var courseId = Guid.NewGuid();
             var course = new Course
             {
