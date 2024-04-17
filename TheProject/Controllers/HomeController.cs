@@ -29,6 +29,11 @@ namespace TheProject.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int statusCode)
         {
+            if (statusCode == 405)
+            {
+                return View("Error400");
+            }
+
             if (statusCode == 404)
             {
                 return View("Error404");
